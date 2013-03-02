@@ -4,4 +4,10 @@
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 		<item value="185" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="ImportExportAction">
+		<item value="com.android.ide.eclipse.adt.project.ImportProjectWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="com.android.ide.eclipse.wizards.category"/>
+		</list>
+	</section>
 </section>

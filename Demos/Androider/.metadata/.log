@@ -340,3 +340,6 @@ org.eclipse.core.internal.resources.ResourceException: Resource '/HelloAndroid' 
 	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
 	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-02 21:47:51.368
+!MESSAGE Failed to load properties file for project 'HelloworldWindow'
