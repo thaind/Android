@@ -1,4 +1,2 @@
-INDEX VERSION 1.126+/home/thaind/Androids/Workspaces/Github/Demos/Androider/.metadata/.plugins/org.eclipse.jdt.core
-979026483.index
-3757909084.index
-1059585388.index
+INDEX VERSION 1.126+E:\Java\Github\Android\Demos\Androider\.metadata\.plugins\org.eclipse.jdt.core
+1277146372.index
