@@ -1,0 +1,24 @@
+package vn.hanoidev.entity;
+
+import vn.hanoidev.widgets.R;
+
+public class Widget {
+	private String name;
+	private int icon;
+
+	public Widget() {
+		this.name = "";
+		this.icon = R.drawable.ic_launcher;
+	}
+
+	public Widget(String name, int icon) {
+		this.name = name;
+		if (icon) {
+			this.icon = icon;
+		} else {
+			this.icon = R.drawable.ic_launcher;
+		}
+
+	}
+
+}

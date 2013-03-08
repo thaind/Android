@@ -1,0 +1,15 @@
+package vn.hanoidev.entity;
+
+public class Widget {
+	private String name;
+	private int icon;
+
+	public Widget() {
+		this.name = "";
+	}
+
+	public Widget(String name, int icon) {
+		this.name = name;
+	}
+
+}

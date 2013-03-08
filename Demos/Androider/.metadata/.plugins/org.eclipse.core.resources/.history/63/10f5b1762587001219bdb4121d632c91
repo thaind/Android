@@ -1,0 +1,66 @@
+package vn.hanoidev.widgets;
+
+import vn.hanoidev.adapters.WidgetAdapter;
+import vn.hanoidev.entity.Widget;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	private ListView mListView;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		setTitle("Danh sách các Widgets");
+		drawListWidget();
+
+	}
+
+	private void drawListWidget() {
+		Widget aWidget[] = new Widget[] {
+				new Widget("TextView", R.drawable.ic_widget),
+				new Widget("EditText", R.drawable.ic_widget) };
+
+		WidgetAdapter adapter = new WidgetAdapter(this,
+				R.layout.listview_widget, aWidget);
+
+		mListView = (ListView) findViewById(R.id.lvWidget);
+		mListView.setAdapter(adapter);
+
+		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+
+				Widget widget = (Widget) mListView.getItemAtPosition(position);
+
+				String myClass = "some_user_input";
+				Class<?> clazz = Class.forName(myClass);
+				Intent myIntent = new Intent(getApplicationContext(), clazz);
+				startActivity(myIntent);
+				Toast.makeText(
+						getApplicationContext(),
+						"position: " + position + " name: " + widget.getName()
+								+ " class: " + MainActivity.class,
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_list, menu);
+		return true;
+	}
+
+}

@@ -1,0 +1,18 @@
+package vn.hanoidev.adapters;
+
+import vn.hanoidev.entity.Widget;
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
+public class WidgetAdapter extends ArrayAdapter<Widget>{
+	Context context;
+	int layoutResourceId;
+	Widget aWidget[];
+
+	public WidgetAdapter(Context context, int layoutResourceId,
+			Widget[] aWidget) {
+		super(context, layoutResourceId, aWidget);
+		
+	}
+
+}

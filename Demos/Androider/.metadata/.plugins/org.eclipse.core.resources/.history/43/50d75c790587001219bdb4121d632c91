@@ -1,0 +1,7 @@
+package vn.hanoidev.widgets;
+
+import android.app.Activity;
+
+public class TextViewActivity extends Activity {
+	
+}

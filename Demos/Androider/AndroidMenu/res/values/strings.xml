@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, AndroidMenuActivity!</string>
+    <string name="app_name">Android Menu</string>
+    <string name="app_about">About Me</string>
+    <string name="str_exit">Exit</string>
+    <string name="app_about_message">Android Menu</string>
+    <string name="str_ok">OK</string>
+    <string name="app_exit">Exit</string>
+    <string name="app_exit_message">Exit?</string>
+    <string name="str_no">No</string>
+    <string name="str_cancel">Cancel</string>
+</resources>

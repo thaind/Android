@@ -1,0 +1,12 @@
+1362637223558	Rename resource 'activity_main_list.xml'
+1362637572461	Rename resource 'main_listwidget.xml'
+1362639332330	Rename compilation unit 'MainListActivity.java'
+1362641700042	Extract method 'drawListWidget'
+1362642305971	Rename field 'sName'
+1362642327866	Encapsulate field 'icon'
+1362642721314	Rename field 'sName'
+1362642741322	Rename field 'name'
+1362646063607	Delete element
+1362663958055	Rename resource 'textview.xml'
+1362672311672	Copy file
+1362672551345	Copy compilation unit

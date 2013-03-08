@@ -1,0 +1,59 @@
+package vn.hanoidev.adapters;
+
+import vn.hanoidev.entity.Widget;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+public class WidgetAdapter extends ArrayAdapter<Widget> {
+	Context context;
+	int layoutResourceId;
+	Widget aWidget[];
+
+	static class WidgetHolder {
+		TextView sName;
+	}
+
+	public WidgetAdapter(Context context, int layoutResourceId, Widget[] aWidget) {
+		super(context, layoutResourceId, aWidget);
+		this.layoutResourceId = layoutResourceId;
+		this.context = context;
+		this.aWidget = aWidget;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+	     View row = convertView;
+	     WidgetHolder holder = null;
+	        
+	        if(row == null)
+	        {
+	            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+	            row = inflater.inflate(layoutResourceId, parent, false);
+	            
+	            holder = new WidgetHolder(); 
+	            holder.sName = (TextView)row.findViewById(R.id.txtTitle);
+	            
+	            row.setTag(holder);
+	        }
+	        else
+	        {
+	            holder = (WeatherHolder)row.getTag();
+	        }
+	        
+	        Weather weather = data[position];
+	        holder.txtTitle.setText(weather.title);
+	        holder.imgIcon.setImageResource(weather.icon);
+	        
+	        return row;
+	    }
+		
+		
+		return super.getView(position, convertView, parent);
+	}
+
+}
