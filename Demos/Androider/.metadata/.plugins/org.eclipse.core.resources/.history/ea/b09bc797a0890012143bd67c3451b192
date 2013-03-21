@@ -1,0 +1,7 @@
+package com.example.hellowidget;
+
+import android.appwidget.AppWidgetProvider;
+
+public class HelloWidgetProvider extends AppWidgetProvider {
+
+}

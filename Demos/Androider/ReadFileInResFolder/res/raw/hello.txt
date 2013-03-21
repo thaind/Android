@@ -1,0 +1,5 @@
+Create a text file, named hello.txt, and save it in the folder /res/raw. The files inside /res/raw will be traded as raw files, they will not be compiled. They will be moved to application package as they are.
+Đời quá đen, tại sao lại không thể đọc file có unicode hahaha
+#@#&!# #! #!#!+#+(+!#(+!#(+~<>:"<"<S< <">?S?? ?"",./,./m,/sl\ qeq\ ;qow]e
+
+Just for test~ :)

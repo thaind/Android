@@ -1,0 +1,21 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="checkbox"
+        android:summary="Change The CheckBox Status here, it will be saved in Preference"
+        android:title="Checkbox" />
+
+    <EditTextPreference
+        android:key="edittexvalue"
+        android:summary="EditTextPreference"
+        android:title="EditText" />
+
+    <ListPreference
+        android:entries="@array/listDisplayWord"
+        android:entryValues="@array/listReturnValue"
+        android:key="listPref"
+        android:summary="Select the option of the list"
+        android:title="List Preference" />
+
+</PreferenceScreen>

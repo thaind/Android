@@ -1,0 +1,3 @@
+1362740985402	Convert local variable 'tFileList' to field
+1362748035097	Extract method 'checkSDCardAvailable'
+1362748501452	Extract local variable 'strPathImagesOnSDCard'

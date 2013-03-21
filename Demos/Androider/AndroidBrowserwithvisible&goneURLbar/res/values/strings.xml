@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, AndroidBrowser!</string>
+    <string name="app_name">Android Browser</string>
+    <string name="str_about_message">Android Browser</string>
+    <string name="str_exit_message">Exit?</string>
+    <string name="str_ok">OK</string>
+    <string name="str_no">No</string>
+    <string name="str_URL">URL:</string>
+    <string name="str_URLbar">URL bar</string>
+    <string name="str_About">About</string>
+    <string name="str_Exit">Exit</string>
+    <string name="str_Backward">&lt;&lt;</string>
+    <string name="str_Reload">Reload</string>
+    <string name="str_Forward">&lt;&lt;</string>
+
+</resources>

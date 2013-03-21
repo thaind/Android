@@ -3,22 +3,32 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="312" key="DIALOG_WIDTH"/>
 		<item value="95" key="DIALOG_Y_ORIGIN"/>
-		<item value="437" key="DIALOG_HEIGHT"/>
 		<item value="794" key="DIALOG_X_ORIGIN"/>
+		<item value="437" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Widget" key="selection"/>
+		<item value="MainActivity" key="selection"/>
 		<list key="findhistory">
-			<item value="Weather"/>
-			<item value="Widget"/>
+			<item value="AndroidNotifyService"/>
+			<item value="AndroidService"/>
+			<item value="”"/>
+			<item value="“"/>
+			<item value="″"/>
+			<item value="onDraw"/>
+			<item value="^\s*\n"/>
+			<item value="// TODO Auto-generated method stub"/>
 		</list>
 		<list key="replacehistory">
+			<item value="MainActivity"/>
+			<item value=""/>
+			<item value="&quot;"/>
+			<item value=" "/>
 			<item value="Widget"/>
 		</list>
 	</section>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/setpreference"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Preference" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Check CheckBox status here will not be saved, it will be lost once activity exit." />
+
+    <TextView
+        android:id="@+id/edittextstatus"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Preferences:" />
+
+    <TextView
+        android:id="@+id/list_pref"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

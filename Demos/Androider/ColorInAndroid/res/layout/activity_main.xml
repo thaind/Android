@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <!-- "white" defined in Android base set of colors -->
+
+    <Button
+        android:id="@+id/whitebutton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="WHITE"
+        android:textColor="@android:color/white" />
+
+    <!-- direct define textColor -->
+
+    <Button
+        android:id="@+id/redbutton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="RED"
+        android:textColor="#ff0000" />
+
+    <!-- "green" defined in mycolor.xml -->
+
+    <Button
+        android:id="@+id/greenbutton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="GREEN"
+        android:textColor="@color/green" />
+
+    <!-- "blue" defined in mycolor.xml -->
+
+    <Button
+        android:id="@+id/bluebutton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="BLUE"
+        android:textColor="@color/blue" />
+
+</LinearLayout>

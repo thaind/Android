@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shipp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="description">Descrição</string>
+    <string name="key_correios">PB123456789BR</string>
+    <string name="seta">seta</string>
+    <string name="connecting">Conectando…</string>
+    <string name="login">Login</string>
+    <string name="opcoes">Opções</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="lastName">Sobrenome</string>
+    <string name="name">Nome</string>
+    <string name="registrar">Registrar</string>
+	<string name="registering">Registrando…</string>
+</resources>

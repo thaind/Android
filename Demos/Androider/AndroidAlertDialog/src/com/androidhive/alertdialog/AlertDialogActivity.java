@@ -121,7 +121,18 @@ public class AlertDialogActivity extends Activity {
 
 				// Setting Icon to Dialog
 				alertDialog.setIcon(R.drawable.save);
+				// Setting Positive NO Button
+				alertDialog.setNeutralButton("NO",
+						new DialogInterface.OnClickListener() {
 
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// User pressed No button. Write Logic Here
+								Toast.makeText(getApplicationContext(),
+										"You clicked on NO", Toast.LENGTH_SHORT)
+										.show();
+							}
+						});
 				// Setting Positive Yes Button
 				alertDialog.setPositiveButton("YES",
 						new DialogInterface.OnClickListener() {
@@ -134,18 +145,7 @@ public class AlertDialogActivity extends Activity {
 										Toast.LENGTH_SHORT).show();
 							}
 						});
-				// Setting Positive Yes Button
-				alertDialog.setNeutralButton("NO",
-						new DialogInterface.OnClickListener() {
 
-							public void onClick(DialogInterface dialog,
-									int which) {
-								// User pressed No button. Write Logic Here
-								Toast.makeText(getApplicationContext(),
-										"You clicked on NO", Toast.LENGTH_SHORT)
-										.show();
-							}
-						});
 				// Setting Positive "Cancel" Button
 				alertDialog.setNegativeButton("Cancel",
 						new DialogInterface.OnClickListener() {

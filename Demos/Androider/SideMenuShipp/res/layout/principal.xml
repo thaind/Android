@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu_bg"
+    tools:context=".PrincipalActivity" >
+    
+    <include layout="@layout/actionbar_menu" android:id="@+id/actionBarMenu"/>
+
+    <ListView
+        android:id="@+id/listMenu"
+        android:layout_below="@+id/actionBarMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="#282828"
+        android:dividerHeight="1dip"
+        android:background="#3F3F3F"
+        android:fadingEdge="none"
+        android:listSelector="@drawable/list_selector">
+
+    </ListView>
+    
+    <RelativeLayout
+        android:id="@+id/layoutToMove"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/actionBar"
+        android:background="#282828">
+        
+        <include layout="@layout/actionbar_layout" android:id="@+id/actionBar"/>
+        
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignBottom="@+id/actionBar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:onClick="openCloseMenu"
+			android:src="@drawable/menu"
+			android:background="@android:color/transparent" />
+
+		<Button
+		    android:id="@+id/separator"
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/menuButton"
+            android:background="@drawable/custom_button_black" />
+        
+    </RelativeLayout>
+</RelativeLayout>

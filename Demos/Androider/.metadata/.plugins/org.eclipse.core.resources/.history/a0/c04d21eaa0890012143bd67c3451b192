@@ -1,0 +1,54 @@
+package com.example.hellowidget;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
+import android.content.Context;
+import android.widget.RemoteViews;
+import android.widget.Toast;
+
+public class HelloWidgetProvider extends AppWidgetProvider {
+	private SimpleDateFormat formatter = new SimpleDateFormat(
+			"dd MMM yyyy  hh:mm:ss a");
+	String strWidgetText = "";
+
+	@Override
+	public void onDeleted(Context context, int[] appWidgetIds) {
+		// TODO Auto-generated method stub
+		// super.onDeleted(context, appWidgetIds);
+		Toast.makeText(context, "onDeleted()", Toast.LENGTH_LONG).show();
+	}
+
+	@Override
+	public void onDisabled(Context context) {
+		// TODO Auto-generated method stub
+		// super.onDisabled(context);
+		Toast.makeText(context, "onDisabled()", Toast.LENGTH_LONG).show();
+	}
+
+	@Override
+	public void onEnabled(Context context) {
+		// TODO Auto-generated method stub
+		// super.onEnabled(context);
+		Toast.makeText(context, "onEnabled()", Toast.LENGTH_LONG).show();
+	}
+
+	@Override
+	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+			int[] appWidgetIds) {
+		super.onUpdate(context, appWidgetManager, appWidgetIds);
+		
+		String currentTime = formatter.format(new Date());
+		strWidgetText = strWidgetText + "\n" + currentTime;
+
+		RemoteViews updateViews = new RemoteViews(context.getPackageName(),
+				R.layout.hellowidget_layout);
+		updateViews.setTextViewText(R.id.widgettext, strWidgetText);
+		appWidgetManager.updateAppWidget(appWidgetIds, updateViews);
+		
+		Toast.makeText(context, "onUpdate()", Toast.LENGTH_LONG).show();
+
+	}
+}

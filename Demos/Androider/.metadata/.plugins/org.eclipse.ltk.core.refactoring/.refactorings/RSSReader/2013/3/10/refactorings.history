@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract constant &apos;HTTP_FEEDS_FEEDBURNER_COM_ANDROID_ER_FORMAT_XML&apos; from expression &apos;&quot;http://feeds.feedburner.com/Android-er?format=xml&quot;&apos;&#x0A;- Original project: &apos;RSSReader&apos;&#x0A;- Constant name: &apos;HTTP_FEEDS_FEEDBURNER_COM_ANDROID_ER_FORMAT_XML&apos;&#x0A;- Constant expression: &apos;&quot;http://feeds.feedburner.com/Android-er?format=xml&quot;&apos;&#x0A;- Declared visibility: &apos;private&apos;&#x0A;- Replace occurrences of expression with constant" description="Extract constant &apos;HTTP_FEEDS_FEEDBURNER_COM_ANDROID_ER_FORMAT_XML&apos;" flags="786432" id="org.eclipse.jdt.ui.extract.constant" input="/src&lt;com.example.rssreader{MainActivity.java" name="HTTP_FEEDS_FEEDBURNER_COM_ANDROID_ER_FORMAT_XML" qualify="false" replace="true" selection="878 51" stamp="1362820878567" version="1.0" visibility="2"/>
+</session>

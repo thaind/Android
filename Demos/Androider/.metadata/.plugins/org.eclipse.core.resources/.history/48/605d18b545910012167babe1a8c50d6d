@@ -1,0 +1,5 @@
+package com.example.notificationwiththread;
+
+public class AutoStartNotifyReceiver {
+
+}

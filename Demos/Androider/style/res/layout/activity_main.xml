@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <TextView
+        style="@style/StyleText1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="It&apos;s StyleText1" />
+
+    <TextView
+        style="@style/StyleButton2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="It&apos;s StyleText2" />
+
+    <Button
+        style="@style/StyleButton1"
+        android:text="It&apos;s StyleButton1" />
+
+    <Button
+        style="@style/StyleButton2"
+        android:text="It&apos;s StyleButton2" />
+
+</LinearLayout>

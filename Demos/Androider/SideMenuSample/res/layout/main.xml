@@ -1,0 +1,38 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<ListView 
+	    android:id="@+id/menu_content_menulist"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"/>		
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    <side.menu.scroll.ScrollerLinearLayout	    
+		    android:id="@+id/menu_content_side_slide_layout"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"	    
+		    android:orientation="vertical">
+		    <LinearLayout 
+		        android:id="@+id/menu_content_frame2"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="#fff"
+		        android:orientation="vertical">
+		        <Button
+			        android:id="@+id/main_tmp_button"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="menu"/>  
+				<LinearLayout
+				    android:id="@+id/menu_content_root"
+				    android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:background="#f00"/>
+		    </LinearLayout>	    		    
+		</side.menu.scroll.ScrollerLinearLayout>			
+	</RelativeLayout>		
+	
+</RelativeLayout>

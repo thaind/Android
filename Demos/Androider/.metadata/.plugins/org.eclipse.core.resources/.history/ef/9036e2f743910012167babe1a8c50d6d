@@ -1,0 +1,7 @@
+package com.example.notificationwiththread;
+
+import android.app.Service;
+
+public class NotifyService extends Service {
+
+}

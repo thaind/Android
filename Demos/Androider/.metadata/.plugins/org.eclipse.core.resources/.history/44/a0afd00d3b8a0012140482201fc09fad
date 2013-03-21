@@ -1,0 +1,67 @@
+package com.example.hellowidget;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
+import android.content.Context;
+import android.widget.RemoteViews;
+import android.widget.Toast;
+
+public class HelloWidgetProvider extends AppWidgetProvider {
+
+	private static SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy  hh:mm:ss a");
+	static String strWidgetText = "";
+	
+	@Override
+	public void onDeleted(Context context, int[] appWidgetIds) {
+		// TODO Auto-generated method stub
+		//super.onDeleted(context, appWidgetIds);
+		Toast.makeText(context, "onDeleted()", Toast.LENGTH_LONG).show();
+	}
+
+	@Override
+	public void onDisabled(Context context) {
+		// TODO Auto-generated method stub
+		//super.onDisabled(context);
+		Toast.makeText(context, "onDisabled()", Toast.LENGTH_LONG).show();
+	}
+
+	@Override
+	public void onEnabled(Context context) {
+		// TODO Auto-generated method stub
+		//super.onEnabled(context);
+		Toast.makeText(context, "onEnabled()", Toast.LENGTH_LONG).show();
+	}
+
+	@Override
+	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+			int[] appWidgetIds) {
+		// TODO Auto-generated method stub
+		super.onUpdate(context, appWidgetManager, appWidgetIds);
+
+		final int N = appWidgetIds.length;
+        for (int i=0; i<N; i++) {
+            int appWidgetId = appWidgetIds[i];
+            updateAppWidget(context, appWidgetManager, appWidgetId);
+            
+            Toast.makeText(context, "onUpdate(): " + String.valueOf(i) + " : " +  String.valueOf(appWidgetId), Toast.LENGTH_LONG).show();
+        }
+		
+	}
+	
+	public static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+			int appWidgetId){
+		String currentTime = formatter.format(new Date());
+		strWidgetText = currentTime;
+		
+		RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.hellowidget_layout);
+		updateViews.setTextViewText(R.id.widgettext, "[" + String.valueOf(appWidgetId) + "]" + strWidgetText);
+		appWidgetManager.updateAppWidget(appWidgetId, updateViews);
+		
+		Toast.makeText(context, "updateAppWidget(): " + String.valueOf(appWidgetId) + "\n" + strWidgetText, Toast.LENGTH_LONG).show();
+
+	}
+
+}

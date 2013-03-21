@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:gravity="center_horizontal"
+    android:text=""
+    android:autoLink="web"
+    />
+<TextView 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal" 
+    android:text="- Android Info. -"
+    />
+<Button
+android:id = "@+id/OsVersion"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="OS Version" />
+<Button
+android:id = "@+id/SysInfo"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="Sys Info." />
+<Button
+android:id = "@+id/CpuInfo"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="CPU Info." />
+<Button
+   android:id = "@+id/ScreenInfo"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="Screen" />
+<Button
+   android:id = "@+id/MemoryInfo"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="Memory" />
+<Button
+   android:id = "@+id/DiskInfo"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="Disk Space" />
+<Button
+	android:id = "@+id/exit"
+   	android:layout_width="wrap_content"
+   	android:layout_height="wrap_content"
+   	android:text="EXIT" />
+</LinearLayout>
+
