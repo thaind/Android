@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, AndroidJSONActivity!</string>
+    <string name="app_name">AndroidJSON</string>
+    <string name="dummy_json">"{\"results\":{\"myblog\":\"android-er\", \"myurl\":"\""http://android-er.blogspot.com/\""}}"</string>
+</resources>
