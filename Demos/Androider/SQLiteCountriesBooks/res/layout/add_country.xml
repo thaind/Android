@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent" 
+   android:layout_height="wrap_content" android:layout_weight="1">
+   
+   <LinearLayout android:id="@+id/linearLayout"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" 
+      android:padding="5dp">
+      
+      <EditText android:id="@+id/nameEdit"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" 
+         android:imeOptions="actionNext" 
+         android:hint="@string/name_hint"
+         android:inputType="textPersonName|textCapWords"/>
+      
+      <EditText android:id="@+id/capEdit"
+         android:layout_width="fill_parent" 
+         android:layout_height="wrap_content" 
+         android:imeOptions="actionNext" 
+         android:hint="@string/cap_hint"
+         android:inputType="textPersonName|textCapWords"/>
+      
+      <EditText android:id="@+id/codeEdit" 
+         android:layout_width="fill_parent" 
+         android:layout_height="wrap_content" 
+         android:imeOptions="actionNext" 
+         android:hint="@string/code_hint" 
+         android:inputType="phone"/>
+            
+      <Button android:id="@+id/saveBtn" 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="15dp"
+         android:layout_gravity="center_horizontal"
+         android:text="@string/save_btn"/>
+   </LinearLayout>
+</ScrollView>

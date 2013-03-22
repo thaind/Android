@@ -82,10 +82,10 @@ public class MainActivity extends Activity {
 		mainLayout.setOrientation(LinearLayout.VERTICAL);
 		MyView myView1 = new MyView(this);
 
-		MyView myView2 = new MyView(this);
+//		MyView myView2 = new MyView(this);
 
 		mainLayout.addView(myView1);
-		mainLayout.addView(myView2);
+//		mainLayout.addView(myView2);
 		setContentView(mainLayout);
 	}
 }

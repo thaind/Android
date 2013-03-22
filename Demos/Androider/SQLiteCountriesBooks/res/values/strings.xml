@@ -1,0 +1,31 @@
+<resources>
+
+   <string name="app_name">World Country Book</string>
+   <string name="menu_settings">Settings</string>
+   <string name="title">World Country Book</string>
+   <string name="button_add_contact">Add Country</string>
+   <string name="save_btn">Save Country</string>
+   
+   <string name="add_menu">Add Country</string>
+   <string name="edit_menu">Edit Country</string>
+   <string name="delete_menu">Delete Country</string>
+   
+   <string name="name_hint">Country</string>
+   <string name="cap_hint">Capital</string>
+   <string name="code_hint">Code</string>
+   
+   <string name="name_lbl">Country</string>
+   <string name="cap_lbl">Capital</string>
+   <string name="code_lbl">Code</string>
+   
+   <string name="confirmTitle">Are You Sure?</string>
+   <string name="confirmMessage">This will permanently Delete the Entry</string>
+   
+   <string name="errorButton">OK</string>
+   <string name="errorTitle">Country Name is Required</string>
+   <string name="errorMessage">You Need to Enter Country Name</string>
+   
+   <string name="cancel_btn">Cancel</string>
+   <string name="delete_btn">Delete</string>
+
+</resources>

@@ -1,0 +1,52 @@
+package com.example.activityasynctask;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	private TextView myTextView;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		myTextView = (TextView) findViewById(R.id.text);
+
+		new TestAsyncTask().execute();
+	}
+
+	private class TestAsyncTask extends AsyncTask<Void, Integer, Void> {
+
+
+
+		protected void onProgressUpdate(Integer... progress) {
+			myTextView.setText(String.valueOf(progress[0]));
+		}
+
+//		protected void onPostExecute() {
+//			myTextView.setText(String.valueOf(count));
+//		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+            int i = 0;
+            int counter = 0;
+            while( i <= 50 ) 
+            {
+                    try{
+                            Thread.sleep( 100 );
+                            publishProgress( i );
+                            i++;
+                    } catch( Exception e ){
+                            Log.i("makemachine", e.getMessage() );
+                    }
+            }
+            return null;
+		}
+	}
+
+}

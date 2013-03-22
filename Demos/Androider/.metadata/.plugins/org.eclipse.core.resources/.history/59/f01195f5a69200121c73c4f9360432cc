@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello" />
+
+    <TextView
+        android:id="@+id/bluetoothstate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/bluetoothstate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Discoverable Duration" />
+
+    <Button
+        android:id="@+id/scandevice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="Scan Bluetooth Devices" />
+
+    <ListView
+        android:id="@+id/devicesfound"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

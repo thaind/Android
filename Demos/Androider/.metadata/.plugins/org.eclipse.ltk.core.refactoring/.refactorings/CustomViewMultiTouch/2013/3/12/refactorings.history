@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;TOUCH_CNT&apos; in &apos;com.example.customviewmultitouch.MultiTouchView&apos; to &apos;TOUCH_COUNTER&apos;&#x0A;- Original project: &apos;CustomViewMultiTouch&apos;&#x0A;- Original element: &apos;com.example.customviewmultitouch.MultiTouchView.TOUCH_CNT&apos;&#x0A;- Renamed element: &apos;com.example.customviewmultitouch.MultiTouchView.TOUCH_COUNTER&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;TOUCH_CNT&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;com.example.customviewmultitouch{MultiTouchView.java[MultiTouchView^TOUCH_CNT" name="TOUCH_COUNTER" references="true" setter="false" stamp="1363924276709" textual="false" version="1.0"/>
+</session>

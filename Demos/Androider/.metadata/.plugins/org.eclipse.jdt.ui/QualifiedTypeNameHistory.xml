@@ -46,6 +46,7 @@
 <fullyQualifiedTypeName name="java.io.DataInputStream"/>
 <fullyQualifiedTypeName name="java.io.DataOutputStream"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
-<fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="android.app.Service"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.provider.MediaStore.Video.Thumbnails"/>
 </qualifiedTypeNameHistroy>

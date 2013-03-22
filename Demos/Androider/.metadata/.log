@@ -2811,3 +2811,221 @@ java.lang.NumberFormatException: Color value '@drawable/icon' must start with #
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2013-03-20 17:19:22.101
 !MESSAGE Failed to load properties file for project 'NotificationUpdated'
+!SESSION 2013-03-21 15:27:20.261 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_15
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-21 15:28:45.437
+!MESSAGE Failed to load properties file for project 'ActivityImplementsRunnable'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-21 15:48:46.925
+!MESSAGE Failed to load properties file for project 'ThumbnailUtils'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-21 15:53:37.655
+!MESSAGE Failed to load properties file for project 'ThumbnailUtilsFromMp4File'
+!SESSION 2013-03-22 08:18:13.833 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_15
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 10:49:05.351
+!MESSAGE Failed to load properties file for project 'CustomViewMultiTouch'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 11:01:08.879
+!MESSAGE Failed to load properties file for project 'Bluetooth'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 11:07:19.931
+!MESSAGE Failed to load properties file for project 'BluetoothList'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 11:13:14.365
+!MESSAGE Failed to load properties file for project 'BluetoothScanDevices'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 11:46:43.797
+!MESSAGE Failed to load properties file for project 'SQLite'
+
+!ENTRY org.eclipse.core.resources 4 4 2013-03-22 14:47:35.945
+!MESSAGE Exception occurred while saving project preferences: /SQLiteCountriesBooks/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/home/thaind/Androids/Workspaces/Github/Demos/Androider/SQLiteCountriesBooks/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:566)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:590)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:465)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2951)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:441)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:350)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:268)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:790)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:626)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:559)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:371)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2013-03-22 14:47:36.011
+!MESSAGE A resource already exists on disk '/home/thaind/Androids/Workspaces/Github/Demos/Androider/SQLiteCountriesBooks/.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2013-03-22 14:47:36.023
+!MESSAGE Exception occurred while saving project preferences: /SQLiteCountriesBooks/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/home/thaind/Androids/Workspaces/Github/Demos/Androider/SQLiteCountriesBooks/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:566)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:590)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:465)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2951)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:443)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:350)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:268)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:790)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:626)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:559)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:371)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2013-03-22 14:47:36.023
+!MESSAGE A resource already exists on disk '/home/thaind/Androids/Workspaces/Github/Demos/Androider/SQLiteCountriesBooks/.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2013-03-22 14:47:36.024
+!MESSAGE Exception occurred while saving project preferences: /SQLiteCountriesBooks/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/home/thaind/Androids/Workspaces/Github/Demos/Androider/SQLiteCountriesBooks/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:566)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:590)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:465)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2951)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:445)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:350)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:268)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:790)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:626)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:559)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:371)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2013-03-22 14:47:36.025
+!MESSAGE A resource already exists on disk '/home/thaind/Androids/Workspaces/Github/Demos/Androider/SQLiteCountriesBooks/.settings'.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 14:47:38.737
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 8086 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:57)
+	at org.eclipse.core.internal.resources.Marker.setAttribute(Marker.java:237)
+	at com.android.ide.eclipse.adt.internal.project.BaseProjectHelper.markProject(BaseProjectHelper.java:210)
+	at com.android.ide.eclipse.adt.internal.project.BaseClasspathContainerInitializer$1.run(BaseClasspathContainerInitializer.java:65)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2013-03-22 14:47:38.737
+!MESSAGE Marker id 8086 not found.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 15:08:29.596
+!MESSAGE Failed to load properties file for project 'SQLiteContacts'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 15:16:50.739
+!MESSAGE Failed to load properties file for project 'SQLite2'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 15:23:45.188
+!MESSAGE Failed to load properties file for project 'IPfromDomain'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 15:26:59.475
+!MESSAGE Failed to load properties file for project 'SQLiteUpdatedDynamically'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 15:33:16.228
+!MESSAGE Failed to load properties file for project 'AlertDialogCustom'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 15:38:34.285
+!MESSAGE Failed to load properties file for project 'SQLiteUpdateAndDelete'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-03-22 15:52:53.134
+!MESSAGE Failed to load properties file for project 'DrawablevsBackgroundXML'
+
+!ENTRY org.eclipse.ui 4 0 2013-03-22 15:53:50.254
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Path for project must have only one segment.
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.eclipse.core.internal.resources.WorkspaceRoot.getProject(WorkspaceRoot.java:184)
+	at org.eclipse.jdt.internal.core.JavaModel.getJavaProject(JavaModel.java:189)
+	at com.android.ide.eclipse.adt.internal.launch.MainLaunchConfigTab.getJavaProject(MainLaunchConfigTab.java:292)
+	at com.android.ide.eclipse.adt.internal.launch.MainLaunchConfigTab.mapResources(MainLaunchConfigTab.java:401)
+	at com.android.ide.eclipse.adt.internal.launch.MainLaunchConfigTab.performApply(MainLaunchConfigTab.java:237)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationTabGroupViewer.refresh(LaunchConfigurationTabGroupViewer.java:444)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationsDialog.updateButtons(LaunchConfigurationsDialog.java:1516)
+	at org.eclipse.debug.ui.AbstractLaunchConfigurationTab.updateLaunchConfigurationDialog(AbstractLaunchConfigurationTab.java:107)
+	at com.android.ide.eclipse.adt.internal.launch.MainLaunchConfigTab.checkParameters(MainLaunchConfigTab.java:489)
+	at com.android.ide.eclipse.adt.internal.launch.MainLaunchConfigTab.access$0(MainLaunchConfigTab.java:460)
+	at com.android.ide.eclipse.adt.internal.launch.MainLaunchConfigTab$WidgetListener.modifyText(MainLaunchConfigTab.java:93)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1276)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1300)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1281)
+	at org.eclipse.swt.widgets.Text.gtk_changed(Text.java:1392)
+	at org.eclipse.swt.widgets.Widget.windowProc(Widget.java:1707)
+	at org.eclipse.swt.widgets.Text.windowProc(Text.java:2618)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4363)
+	at org.eclipse.swt.internal.gtk.OS._gtk_main_do_event(Native Method)
+	at org.eclipse.swt.internal.gtk.OS.gtk_main_do_event(OS.java:8295)
+	at org.eclipse.swt.widgets.Display.eventProc(Display.java:1192)
+	at org.eclipse.swt.internal.gtk.OS._g_main_context_iteration(Native Method)
+	at org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(OS.java:2332)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3177)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationsDialog.open(LaunchConfigurationsDialog.java:1132)
+	at org.eclipse.debug.ui.DebugUITools$2.run(DebugUITools.java:600)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.debug.ui.DebugUITools.openLaunchConfigurationDialogOnGroup(DebugUITools.java:608)
+	at org.eclipse.debug.ui.DebugUITools.openLaunchConfigurationDialogOnGroup(DebugUITools.java:542)
+	at org.eclipse.debug.ui.actions.OpenLaunchDialogAction.run(OpenLaunchDialogAction.java:81)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1276)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3554)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3179)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)

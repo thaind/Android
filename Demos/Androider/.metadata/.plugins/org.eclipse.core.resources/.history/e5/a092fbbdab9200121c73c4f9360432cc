@@ -1,0 +1,5 @@
+package com.example.sqlite;
+
+public class SqliteAdapter {
+
+}

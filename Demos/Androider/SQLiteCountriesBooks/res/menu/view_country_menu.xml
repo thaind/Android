@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+   
+   <item 
+      android:id="@+id/editItem"
+      android:title="@string/edit_menu" 
+      android:orderInCategory="1" 
+      android:alphabeticShortcut="e"
+      android:titleCondensed="@string/edit_menu"
+      android:icon="@drawable/menu_edit"/>
+      
+   <item 
+      android:id="@+id/deleteItem" 
+      android:title="@string/delete_menu"
+      android:orderInCategory="2" 
+      android:alphabeticShortcut="d"
+      android:titleCondensed="@string/delete_menu"
+      android:icon="@drawable/menu_delete"/>
+   
+</menu>

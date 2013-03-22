@@ -1,0 +1,5 @@
+package com.example.sqliteupdateanddelete;
+
+public class SQLiteAdapter {
+
+}

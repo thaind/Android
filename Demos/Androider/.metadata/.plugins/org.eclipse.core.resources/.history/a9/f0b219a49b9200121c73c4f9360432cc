@@ -1,0 +1,40 @@
+package com.example.activityasynctask;
+
+import java.net.URL;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	private TextView myTextView;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		myTextView = (TextView) findViewById(R.id.text);
+
+		new TestAsyncTask().execute();
+	}
+
+	private class TestAsyncTask extends AsyncTask<Void, Integer, Void> {
+		@Override
+		protected void onProgressUpdate(Integer... progress) {
+			setProgressPercent(progress[0]);
+		}
+
+		@Override
+		protected void onPostExecute(Long result) {
+			showDialog("Downloaded " + result + " bytes");
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			return null;
+		}
+	}
+
+}

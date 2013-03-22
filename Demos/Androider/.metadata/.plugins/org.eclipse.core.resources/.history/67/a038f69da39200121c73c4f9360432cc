@@ -1,0 +1,7 @@
+package com.example.customviewmultitouch;
+
+import android.view.View;
+
+public class MultiTouchView extends View{
+
+}

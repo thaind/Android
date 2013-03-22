@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+  
+   <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="fill_parent" 
+      android:layout_height="wrap_content"
+      android:stretchColumns="1" 
+      android:layout_margin="5dp">
+   
+       <TableRow>         
+         <TextView 
+            style="@style/StyleLabel"
+            android:text="@string/name_lbl"/>
+         <TextView 
+            android:id="@+id/nameText" 
+            style="@style/StyleText"/>         
+      </TableRow>
+
+      <TableRow>         
+         <TextView 
+            style="@style/StyleLabel"
+            android:text="@string/cap_lbl"/>         
+         <TextView 
+            android:id="@+id/capText"
+            style="@style/StyleText"/>         
+      </TableRow>
+
+      <TableRow>         
+         <TextView 
+            style="@style/StyleLabel"
+            android:text="@string/code_lbl"/>         
+         <TextView 
+            android:id="@+id/codeText"
+            style="@style/StyleText"/>         
+      </TableRow>
+           
+   </TableLayout>
