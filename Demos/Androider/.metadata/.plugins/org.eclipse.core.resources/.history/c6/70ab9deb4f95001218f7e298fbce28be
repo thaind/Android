@@ -1,0 +1,28 @@
+package com.example.animationdrawable;
+
+import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
+import android.widget.ImageView;
+
+public class MainActivity extends Activity {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		ImageView myAnimation = (ImageView) findViewById(R.id.myanimation);
+		final AnimationDrawable myAnimationDrawable = (AnimationDrawable) myAnimation
+				.getDrawable();
+
+		myAnimation.post(new Runnable() {
+
+			@Override
+			public void run() {
+				myAnimationDrawable.start();
+			}
+		});
+	}
+
+}

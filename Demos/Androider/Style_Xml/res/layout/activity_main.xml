@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <TextView
+        style="@style/mystyle"
+        android:text="mystyle" />
+
+    <TextView
+        style="@style/mystyle.20dp"
+        android:text="mystyle.20dp" />
+
+    <TextView
+        style="@style/mystyle.20dp.bold"
+        android:text="mystyle.20dp.bold" />
+
+    <TextView
+        style="@style/mystyle.30dp"
+        android:text="mystyle.30dp" />
+
+    <TextView
+        style="@android:style/TextAppearance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Android build-in style: TextAppearance" />
+
+    <TextView
+        style="@android:style/TextAppearance.Inverse"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:text="Android build-in style: TextAppearance.Inverse" />
+
+    <TextView
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Android build-in style: TextAppearance.Small" />
+
+    <TextView
+        style="@android:style/TextAppearance.Medium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Android build-in style: TextAppearance.Medium" />
+
+    <TextView
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Android build-in style: TextAppearance.Large" />
+
+</LinearLayout>

@@ -1,0 +1,112 @@
+package com.example.widgetcustom;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.util.AttributeSet;
+import android.view.View;
+
+public class MyWidgetView extends View {
+	final int MIN_WIDTH = 200;
+
+	final int MIN_HEIGHT = 50;
+
+	final int DEFAULT_COLOR = Color.MAGENTA;
+
+	int _color;
+
+	final int STROKE_WIDTH = 2;
+
+	public MyWidgetView(Context context) {
+
+		super(context);
+
+		// TODO Auto-generated constructor stub
+
+		init();
+
+	}
+
+	public MyWidgetView(Context context, AttributeSet attrs) {
+
+		super(context, attrs);
+
+		// TODO Auto-generated constructor stub
+
+		init();
+
+	}
+
+	public MyWidgetView(Context context, AttributeSet attrs, int defStyle) {
+
+		super(context, attrs, defStyle);
+
+		// TODO Auto-generated constructor stub
+
+		init();
+
+	}
+
+	private void init() {
+
+		setMinimumWidth(MIN_WIDTH);
+
+		setMinimumHeight(MIN_HEIGHT);
+
+		_color = DEFAULT_COLOR;
+
+	}
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+		// TODO Auto-generated method stub
+
+		super.onMeasure(getSuggestedMinimumWidth(), getSuggestedMinimumHeight());
+
+	}
+
+	@Override
+	protected void onDraw(Canvas canvas) {
+
+		// TODO Auto-generated method stub
+
+		Paint paint = new Paint();
+
+		paint.setColor(_color);
+
+		paint.setStrokeWidth(STROKE_WIDTH);
+
+		canvas.drawRect(5, 5, getWidth() - 5, getHeight() - 5, paint);
+
+		Path path;
+
+		path = new Path();
+
+		paint.setColor(Color.GRAY);
+
+		paint.setTextSize(25);
+
+		path.addArc(new RectF(5, 5, getWidth() - 25, getHeight() - 25), 180,
+				90);
+
+		canvas.drawTextOnPath("Hello", path, 0, 0, paint);
+
+		path = new Path();
+
+		path.addArc(new RectF(5, 5, getWidth() - 25, getHeight() - 25), 0, 90);
+
+		canvas.drawTextOnPath("Android", path, 0, 0, paint);
+
+	}
+
+	public void setColor(int color) {
+
+		_color = color;
+
+	}
+
+}

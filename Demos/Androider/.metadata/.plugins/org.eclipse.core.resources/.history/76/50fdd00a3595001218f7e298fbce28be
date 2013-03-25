@@ -1,0 +1,45 @@
+package com.example.assertfolder;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.webkit.WebView;
+
+public class MainActivity extends Activity {
+
+	private WebView myBrowser;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		myBrowser = (WebView) findViewById(R.id.mybrowser);
+		myBrowser.addJavascriptInterface(new MyJavaScriptInterface(this),
+				"AndroidFunction");
+
+		myBrowser.getSettings().setJavaScriptEnabled(true);
+		myBrowser.loadUrl("file:///android_asset/mypage.html");
+
+	}
+
+	public class MyJavaScriptInterface {
+		Context mContext;
+
+		MyJavaScriptInterface(Context c) {
+			mContext = c;
+		}
+
+		public void showToast(String toast) {
+			Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+		}
+
+		public void openAndroidDialog() {
+			AlertDialog.Builder myDialog = new AlertDialog.Builder(
+					AndroidHTMLActivity.this);
+			myDialog.setTitle("DANGER!");
+			myDialog.setMessage("You can do what you want!");
+			myDialog.setPositiveButton("ON", null);
+			myDialog.show();
+		}
+
+	}
+}

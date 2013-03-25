@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width; user-scalable=0;" />
+<title>My HTML</title>
+</head>
+<body>
+<h1>MyHTML</h1>
+<p id="mytext">Hello!</p>
+<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+<input type="button" value="Open Dialog" onClick="openAndroidDialog()" />
+<script language="javascript">
+   function showAndroidToast(toast) {
+       AndroidFunction.showToast(toast);
+   }
+
+   function openAndroidDialog() {
+       AndroidFunction.openAndroidDialog();
+   }
+  
+   function callFromActivity(msg){
+ document.getElementById("mytext").innerHTML = msg;
+   }
+</script>
+
+</body>
+</html>

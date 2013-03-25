@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <com.example.widgetcustom.MyWidgetView
+        android:id="@+id/mywidget_01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+
+    <com.example.widgetcustom.MyWidgetView
+        android:id="@+id/mywidget_02"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp" />
+
+    <com.example.widgetcustom.MyWidgetView
+        android:id="@+id/mywidget_03"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp" />
+
+</LinearLayout>

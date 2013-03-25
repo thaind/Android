@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/showactionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Action Bar" />
+
+    <Button
+        android:id="@+id/hideactionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Hide Action Bar" />
+
+</LinearLayout>

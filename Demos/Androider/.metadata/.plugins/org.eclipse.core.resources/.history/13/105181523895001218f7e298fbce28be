@@ -1,0 +1,66 @@
+package com.example.gesturedetector;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.MotionEvent;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	TextView gestureEvent;
+	GestureDetector gestureDetector = new GestureDetector(
+			new SimpleOnGestureListener() {
+
+				@Override
+				public boolean onDoubleTap(MotionEvent e) {
+					// TODO Auto-generated method stub
+					gestureEvent.setText("onDoubleTap: \n" + e.toString());
+					return super.onDoubleTap(e);
+				}
+
+				@Override
+				public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+						float velocityY) {
+					// TODO Auto-generated method stub
+					gestureEvent.setText("onFling: \n" + e1.toString() + "\n"
+							+ e2.toString() + "\n" + "velocityX= "
+							+ String.valueOf(velocityX) + "\n" + "velocityY= "
+							+ String.valueOf(velocityY) + "\n");
+					return super.onFling(e1, e2, velocityX, velocityY);
+				}
+
+				@Override
+				public void onLongPress(MotionEvent e) {
+					// TODO Auto-generated method stub
+					gestureEvent.setText("onLongPress: \n" + e.toString());
+					super.onLongPress(e);
+				}
+
+				@Override
+				public boolean onSingleTapConfirmed(MotionEvent e) {
+					// TODO Auto-generated method stub
+					gestureEvent.setText("onSingleTapConfirmed: \n" + e.toString());
+					return super.onSingleTapConfirmed(e);
+				}
+
+			});
+
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		gestureEvent = (TextView) findViewById(R.id.GestureEvent);
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// TODO Auto-generated method stub
+		return gestureDetector.onTouchEvent(event);
+	}
+
+	SimpleOnGestureListener simpleOnGestureListener = 
+
+}

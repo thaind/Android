@@ -1,0 +1,28 @@
+package com.example.bitmap;
+
+import android.app.Activity;
+
+public class SecondActivity extends Activity {
+	ImageView imageA, imageB, imageC;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.second);
+		imageA = (ImageView) findViewById(R.id.imagea);
+		imageB = (ImageView) findViewById(R.id.imageb);
+		imageC = (ImageView) findViewById(R.id.imagec);
+
+		Bundle bundle = this.getIntent().getExtras();
+		Bitmap bmA = bundle.getParcelable("BITMAP_A");
+		Bitmap bmB = bundle.getParcelable("BITMAP_B");
+		Bitmap bmC = bundle.getParcelable("BITMAP_C");
+
+		imageA.setImageBitmap(bmA);
+		imageB.setImageBitmap(bmB);
+		imageC.setImageBitmap(bmC);
+
+	}
+
+}

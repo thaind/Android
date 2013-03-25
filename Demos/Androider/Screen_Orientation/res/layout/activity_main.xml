@@ -22,4 +22,13 @@
         android:layout_below="@+id/textView1"
         android:text="setPortrait" />
 
+    <Button
+        android:id="@+id/setLandscape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/setPortrait"
+        android:layout_alignBottom="@+id/setPortrait"
+        android:layout_toRightOf="@+id/setPortrait"
+        android:text="setLandscape" />
+
 </RelativeLayout>

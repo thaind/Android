@@ -1,0 +1,7 @@
+package com.example.widgetcustom;
+
+import android.view.View;
+
+public class MyWidgetView extends View {
+
+}

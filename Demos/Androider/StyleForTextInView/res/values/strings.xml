@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StyleForTextInView</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="stylingtext">    Styling Text:\n<i>Italic</i><b>Bold</b><monospace>Monospace</monospace>\n <strike>Strike</strike><sup>Superscript</sup><sub>Subscript</sub><u>Underline</u>\n<big><big><big>Big x 3 </big>Big x 2 </big>Big</big><small>Small <small>Small x 2</small></small></string>
+
+</resources>

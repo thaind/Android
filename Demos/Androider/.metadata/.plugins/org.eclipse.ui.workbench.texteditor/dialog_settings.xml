@@ -15,14 +15,14 @@
 		<item value="false" key="wholeword"/>
 		<item value="MainActivity" key="selection"/>
 		<list key="findhistory">
+			<item value="icon"/>
+			<item value="AndroidHttpPostActivity"/>
 			<item value="AndroidNotifyService"/>
 			<item value="AndroidService"/>
 			<item value="”"/>
 			<item value="“"/>
 			<item value="″"/>
 			<item value="onDraw"/>
-			<item value="^\s*\n"/>
-			<item value="// TODO Auto-generated method stub"/>
 		</list>
 		<list key="replacehistory">
 			<item value="MainActivity"/>

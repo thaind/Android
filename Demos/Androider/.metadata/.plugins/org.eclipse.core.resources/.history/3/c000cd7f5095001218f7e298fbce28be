@@ -1,0 +1,74 @@
+package com.example.animationdrawable;
+
+import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.SeekBar;
+
+public class MainActivity extends Activity {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		ImageView myAnimation = (ImageView) findViewById(R.id.myanimation);
+		ImageView myAnimation2 = (ImageView) findViewById(R.id.myanimation2);
+		final AnimationDrawable myAnimationDrawable = (AnimationDrawable) myAnimation
+				.getDrawable();
+
+		SeekBar setAnimationAlpha = (SeekBar) findViewById(R.id.setalpha);
+		Button startAnimation = (Button) findViewById(R.id.startanimation);
+		Button stopAnimation = (Button) findViewById(R.id.stopanimation);
+
+		startAnimation.setOnClickListener(new Button.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (!myAnimationDrawable.isRunning()) {
+					myAnimationDrawable.start();
+				}
+			}
+		});
+
+		stopAnimation.setOnClickListener(new Button.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (myAnimationDrawable.isRunning()) {
+					myAnimationDrawable.stop();
+				}
+			}
+		});
+
+		setAnimationAlpha
+				.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+					@Override
+					public void onProgressChanged(SeekBar seekBar,
+							int progress, boolean fromUser) {
+						myAnimationDrawable.setAlpha(progress);
+
+					}
+
+					@Override
+					public void onStartTrackingTouch(SeekBar seekBar) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void onStopTrackingTouch(SeekBar seekBar) {
+						// TODO Auto-generated method stub
+
+					}
+				});
+
+	}
+
+}

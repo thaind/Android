@@ -1,0 +1,96 @@
+package com.example.animationdrawable;
+
+import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.SeekBar;
+
+public class MainActivity extends Activity {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+
+		ImageView myAnimation = (ImageView) findViewById(R.id.myanimation);
+		ImageView myAnimation2 = (ImageView) findViewById(R.id.myanimation2);
+		final AnimationDrawable myAnimationDrawable = (AnimationDrawable) myAnimation
+				.getDrawable();
+
+		// Copy a new AnimationDrawable in reversed order
+		final AnimationDrawable reversedAnimationDrawable = copyReversedAnim(myAnimationDrawable);
+		// apply the new AnimationDrawable
+		myAnimation2.setImageDrawable(reversedAnimationDrawable);
+
+		SeekBar setAnimationAlpha = (SeekBar) findViewById(R.id.setalpha);
+		Button startAnimation = (Button) findViewById(R.id.startanimation);
+		Button stopAnimation = (Button) findViewById(R.id.stopanimation);
+
+		startAnimation.setOnClickListener(new Button.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (!reversedAnimationDrawable.isRunning()) {
+					myAnimationDrawable.start();
+					reversedAnimationDrawable.start();
+				}
+			}
+		});
+
+		stopAnimation.setOnClickListener(new Button.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (reversedAnimationDrawable.isRunning()) {
+					myAnimationDrawable.stop();
+					reversedAnimationDrawable.stop();
+				}
+			}
+		});
+
+		setAnimationAlpha
+				.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+					@Override
+					public void onProgressChanged(SeekBar seekBar,
+							int progress, boolean fromUser) {
+						myAnimationDrawable.setAlpha(progress);
+						reversedAnimationDrawable.setAlpha(progress);
+
+					}
+
+					@Override
+					public void onStartTrackingTouch(SeekBar seekBar) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void onStopTrackingTouch(SeekBar seekBar) {
+						// TODO Auto-generated method stub
+
+					}
+				});
+
+	}
+
+	private AnimationDrawable copyReversedAnim(AnimationDrawable src) {
+
+		AnimationDrawable newAnim = new AnimationDrawable();
+
+		int numberOfFrame = src.getNumberOfFrames();
+
+		for (int i = 0; i < numberOfFrame; i++) {
+			newAnim.addFrame(src.getFrame(numberOfFrame - i - 1),
+					src.getDuration(numberOfFrame - i - 1));
+		}
+		newAnim.setOneShot(false);
+
+		return newAnim;
+	}
+}
