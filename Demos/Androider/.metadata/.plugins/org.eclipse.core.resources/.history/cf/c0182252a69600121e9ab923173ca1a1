@@ -1,0 +1,7 @@
+package com.example.image_mapping_mask;
+
+import View;
+
+public class InfoView extends View {
+
+}

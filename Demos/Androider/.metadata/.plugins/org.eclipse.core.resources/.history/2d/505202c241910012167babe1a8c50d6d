@@ -1,7 +1,0 @@
-package com.example.notificationwithservice;
-
-import android.app.Service;
-
-public class NotifyService extends Service{
-
-}

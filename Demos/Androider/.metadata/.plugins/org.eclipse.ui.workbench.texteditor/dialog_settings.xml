@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="312" key="DIALOG_WIDTH"/>
 		<item value="95" key="DIALOG_Y_ORIGIN"/>
-		<item value="794" key="DIALOG_X_ORIGIN"/>
 		<item value="437" key="DIALOG_HEIGHT"/>
+		<item value="794" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="true" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="MainActivity" key="selection"/>
+		<item value="setTag" key="selection"/>
 		<list key="findhistory">
+			<item value="setTag"/>
+			<item value="settag"/>
 			<item value="icon"/>
 			<item value="AndroidHttpPostActivity"/>
 			<item value="AndroidNotifyService"/>
 			<item value="AndroidService"/>
 			<item value="”"/>
 			<item value="“"/>
-			<item value="″"/>
-			<item value="onDraw"/>
 		</list>
 		<list key="replacehistory">
 			<item value="MainActivity"/>

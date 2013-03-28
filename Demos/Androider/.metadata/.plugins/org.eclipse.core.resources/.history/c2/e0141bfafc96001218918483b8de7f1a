@@ -1,0 +1,7 @@
+package com.example.fragment_lifecycle;
+
+import android.app.Fragment;
+
+public class MyFragment extends Fragment {
+
+}

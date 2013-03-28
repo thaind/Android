@@ -1,0 +1,7 @@
+package com.example.imageview_custom;
+
+import View;
+
+public class TouchView extends View {
+
+}

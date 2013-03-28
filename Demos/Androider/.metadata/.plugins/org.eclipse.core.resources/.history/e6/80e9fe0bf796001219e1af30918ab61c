@@ -1,0 +1,32 @@
+package com.example.renderscript;
+
+import android.renderscript.RSSurfaceView;
+import android.view.View;
+
+public class MyRSSurfaceView extends RSSurfaceView {
+	private RenderScriptGL renderScriptGL;
+	private ScriptC_RenderScript myScriptC;
+
+	public MyRSSurfaceView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+		final RenderScriptGL.SurfaceConfig surfaceConfig = new SurfaceConfig();
+		renderScriptGL = createRenderScriptGL(surfaceConfig);
+
+		myScriptC = new ScriptC_RenderScript(renderScriptGL, getResources(),
+				R.raw.renderscript);
+
+		// Create something...
+		Mesh.TriangleMeshBuilder myMesh = new Mesh.TriangleMeshBuilder(
+				renderScriptGL, 2, Mesh.TriangleMeshBuilder.COLOR);
+		myMesh.addVertex(0, 0);
+		myMesh.addVertex(0, 100);
+		myMesh.addVertex(100, 0);
+		myMesh.addTriangle(0, 1, 2);
+		Mesh mesh = myMesh.create(true);
+		myScriptC.set_my_rs_mesh(mesh);
+		//
+
+		renderScriptGL.bindRootScript(myScriptC);
+	}
+}

@@ -1,0 +1,7 @@
+package com.example.renderscript;
+
+import android.view.View;
+
+public class MyRSSurfaceView extends View {
+
+}

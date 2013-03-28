@@ -1,0 +1,5 @@
+<resources>
+
+    <string name="app_name">"BroadcastReceiver_And_AlarmManager "</string>
+
+</resources>

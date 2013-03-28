@@ -1,0 +1,105 @@
+package com.example.image_mapping_mask;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View.MeasureSpec;
+
+public class TouchView extends View {
+	Bitmap bitmap, mask;
+	double bmWidth, bmHeight;
+
+	String touchInfo;
+	float touchX, touchY;
+
+	String part;
+
+	public TouchView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+		init();
+	}
+
+	public TouchView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+		init();
+	}
+
+	public TouchView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+		init();
+	}
+
+	private void init() {
+
+		bitmap = ((BitmapDrawable) getDrawable()).getBitmap();
+		mask = BitmapFactory.decodeResource(getResources(),
+				R.drawable.android_mask);
+		bmWidth = (double) bitmap.getWidth();
+		bmHeight = (double) bitmap.getHeight();
+	}
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		// TODO Auto-generated method stub
+		setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),
+				MeasureSpec.getSize(heightMeasureSpec));
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// TODO Auto-generated method stub
+
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+		case MotionEvent.ACTION_MOVE:
+			touchX = event.getX();
+			touchY = event.getY();
+
+			long maskColor = getColor(touchX, touchY);
+
+			// Match the color in Mask bitmap
+			if (maskColor == Color.RED) {
+				touchInfo = "Heart";
+			} else if (maskColor == Color.GREEN) {
+				touchInfo = "Head";
+			} else if (maskColor == Color.BLUE) {
+				touchInfo = "Body";
+			} else if (maskColor == -256) {
+				touchInfo = "Hand";
+			} else if (maskColor == -16711681) {
+				touchInfo = "Foot";
+			} else {
+				touchInfo = "";
+			}
+
+			((MainActivity) getContext()).updateMsg(touchInfo,
+					touchX, touchY, (int) maskColor);
+			return true;
+
+		default:
+			return false;
+		}
+
+	}
+
+	private long getColor(float x, float y) {
+
+		if (x < 0 || y < 0 || x > (float) getWidth() || y > (float) getHeight()) {
+			return 0; // Invalid, return 0
+		} else {
+			// Convert touched x, y on View to on Bitmap
+			int xBm = (int) (x * (bmWidth / (double) getWidth()));
+			int yBm = (int) (y * (bmHeight / (double) getHeight()));
+
+			return mask.getPixel(xBm, yBm);
+		}
+	}
+
+}

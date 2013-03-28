@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/mediauri"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/playvideoplayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="- PLAY Video -" />
+
+    <Button
+        android:id="@+id/pausevideoplayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="- PAUSE Video -" />
+
+    <SurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

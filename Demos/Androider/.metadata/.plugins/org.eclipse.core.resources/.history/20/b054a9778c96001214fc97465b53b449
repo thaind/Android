@@ -1,0 +1,7 @@
+package com.example.view_custom_drawtextonimage;
+
+import android.view.View;
+
+public class InfoView extends View {
+
+}

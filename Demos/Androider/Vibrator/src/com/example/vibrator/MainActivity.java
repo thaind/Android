@@ -1,0 +1,77 @@
+package com.example.vibrator;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Vibrator;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+
+	Button buttonVibrate1, buttonVibrate2, buttonVibrate3;
+
+	Vibrator myVibrator;
+
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		buttonVibrate1 = (Button) findViewById(R.id.buttonVibrate1);
+		buttonVibrate2 = (Button) findViewById(R.id.buttonVibrate2);
+		buttonVibrate3 = (Button) findViewById(R.id.buttonVibrate3);
+
+		myVibrator = (Vibrator) getSystemService(MainActivity.VIBRATOR_SERVICE);
+
+		buttonVibrate1.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				myVibrator.vibrate(500);
+			}
+		});
+
+		buttonVibrate2.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				int action = event.getAction();
+
+				if (action == MotionEvent.ACTION_DOWN) {
+					myVibrator.vibrate(1000);
+				} else if (action == MotionEvent.ACTION_UP) {
+					myVibrator.cancel();
+				}
+
+				return true;
+			}
+		});
+
+		buttonVibrate3.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				int action = event.getAction();
+
+				if (action == MotionEvent.ACTION_DOWN) {
+
+					long[] pattern = { 50, // Off before vibration
+							100, 100, // on-off
+							100, 1000, // on-off
+					};
+
+					myVibrator.vibrate(pattern, 0); // repeat from pattern[0]
+				} else if (action == MotionEvent.ACTION_UP) {
+					myVibrator.cancel();
+				}
+
+				return true;
+			}
+		});
+
+	}
+}

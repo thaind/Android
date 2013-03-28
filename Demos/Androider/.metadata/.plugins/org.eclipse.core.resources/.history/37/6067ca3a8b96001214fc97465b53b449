@@ -1,0 +1,30 @@
+package com.example.imageview_custom;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	TextView msg;
+	TouchView touchView;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		msg = (TextView) findViewById(R.id.msg);
+		touchView = (TouchView) findViewById(R.id.touchview);
+
+	}
+
+	public void updateMsg(String tMsg) {
+		msg.setText(tMsg);
+	}
+
+	public void updateMsg(String string, int color) {
+		msg.setTextColor(color);
+		msg.setText(tMsg);
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.example.view_custom_drawtextonimage;
+
+public class ImageView extends android.widget.ImageView {
+
+}

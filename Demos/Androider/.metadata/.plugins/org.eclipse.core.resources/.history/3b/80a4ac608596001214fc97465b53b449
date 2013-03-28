@@ -1,0 +1,51 @@
+package com.example.imageview_custom;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.MeasureSpec;
+
+public class TouchView extends View {
+	public TouchView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+	public TouchView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+	}
+
+	public TouchView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		// TODO Auto-generated method stub
+		setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),
+				MeasureSpec.getSize(heightMeasureSpec));
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// TODO Auto-generated method stub
+
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+		case MotionEvent.ACTION_MOVE:
+			float x = event.getX();
+			float y = event.getY();
+			((AndroidDetechTouchActivity) getContext()).updateMsg("Touched@"
+					+ x + " : " + y);
+			break;
+		case MotionEvent.ACTION_UP:
+			((AndroidDetechTouchActivity) getContext()).updateMsg("");
+			break;
+		}
+
+		return true;
+	}
+}

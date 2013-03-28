@@ -1,0 +1,53 @@
+package com.example.view_custom_drawtextonimage;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.View;
+
+public class InfoView extends View {
+
+	private String info;
+	private float x;
+	private float y;
+
+	public InfoView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+	}
+
+	public InfoView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+	}
+
+	public InfoView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
+		Log.i("MainActivity", "1");
+		Paint paint = new Paint();
+		paint.setStyle(Paint.Style.FILL_AND_STROKE);
+		paint.setColor(Color.WHITE);
+		paint.setStrokeWidth(2);
+		paint.setTextSize(30);
+
+		canvas.drawCircle(x, y, 5, paint);
+		canvas.drawText(info, x, y, paint);
+	}
+
+	public void updateInfo(String t_info, float t_x, float t_y) {
+		info = t_info;
+		x = t_x;
+		y = t_y;
+		invalidate();
+	}
+
+}

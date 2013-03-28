@@ -1,0 +1,27 @@
+package com.example.view_custom_drawtextonimage;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+
+public class MainActivity extends Activity {
+
+	TouchView touchView;
+	InfoView infoView;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		touchView = (TouchView) findViewById(R.id.touchview);
+		infoView = (InfoView) findViewById(R.id.infoview);
+
+	}
+
+	public void updateMsg(String t_info, float t_x, float t_y) {
+		Log.i("NDT", "hehe");
+		infoView.updateInfo(t_info, t_x, t_y);
+
+	}
+}

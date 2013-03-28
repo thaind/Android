@@ -1,0 +1,90 @@
+package com.example.view_custom_drawtextonimage;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+
+public class ImageView extends android.widget.ImageView {
+
+	Bitmap bitmap;
+	double bmWidth, bmHeight;
+
+	String touchInfo;
+	float touchX, touchY;
+
+	public ImageView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ImageView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ImageView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		// TODO Auto-generated method stub
+		setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),
+				MeasureSpec.getSize(heightMeasureSpec));
+	}
+
+	private void init() {
+		bitmap = ((BitmapDrawable) getBackground()).getBitmap();
+		bmWidth = (double) bitmap.getWidth();
+		bmHeight = (double) bitmap.getHeight();
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// TODO Auto-generated method stub
+
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+		case MotionEvent.ACTION_MOVE:
+			touchX = event.getX();
+			touchY = event.getY();
+
+			touchInfo = "Touched@" + String.valueOf(touchX) + " : "
+					+ String.valueOf(touchY);
+
+			((MainActivity) getContext()).updateMsg(touchInfo,
+					touchX, touchY);
+
+			break;
+		case MotionEvent.ACTION_UP:
+			touchX = event.getX();
+			touchY = event.getY();
+
+			touchInfo = "UnTouched@\n" + String.valueOf(touchX) + " : "
+					+ String.valueOf(touchY);
+
+			((MainActivity) getContext()).updateMsg(touchInfo,
+					touchX, touchY);
+			break;
+		}
+
+		return true;
+	}
+
+	private int getColor(float x, float y) {
+
+		if (x < 0 || y < 0 || x > (float) getWidth() || y > (float) getHeight()) {
+			return 0; // Invalid, return 0
+		} else {
+			// Convert touched x, y on View to on Bitmap
+			int xBm = (int) (x * (bmWidth / (double) getWidth()));
+			int yBm = (int) (y * (bmHeight / (double) getHeight()));
+
+			return bitmap.getPixel(xBm, yBm);
+		}
+	}
+
+}
