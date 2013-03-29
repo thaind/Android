@@ -1,0 +1,104 @@
+package com.example.gallery;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Gallery;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	public class GalleryBaseAdapter extends BaseAdapter {
+
+		ArrayList<String> GalleryFileList;
+		Context context;
+
+		GalleryBaseAdapter(Context cont) {
+			context = cont;
+			GalleryFileList = new ArrayList<String>();
+		}
+
+		@Override
+		public int getCount() {
+			return GalleryFileList.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return GalleryFileList.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			Bitmap bm = BitmapFactory.decodeFile(GalleryFileList.get(position));
+
+			LinearLayout layout = new LinearLayout(context);
+			layout.setLayoutParams(new Gallery.LayoutParams(250, 250));
+			layout.setGravity(Gravity.CENTER);
+
+			ImageView imageView = new ImageView(context);
+			imageView.setLayoutParams(new Gallery.LayoutParams(200, 200));
+			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			imageView.setImageBitmap(bm);
+
+			layout.addView(imageView);
+			return layout;
+
+		}
+
+		public void add(String newitem) {
+			GalleryFileList.add(newitem);
+		}
+
+	}
+
+	GalleryBaseAdapter myGalleryBaseAdapter;
+	Gallery myPhotoGallery;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		myPhotoGallery = (Gallery) findViewById(R.id.photogallery);
+
+		myGalleryBaseAdapter = new GalleryBaseAdapter(this);
+
+		String ExternalStorageDirectoryPath = Environment
+				.getExternalStorageDirectory().getAbsolutePath();
+
+		String targetPath = ExternalStorageDirectoryPath + "/test/";
+
+		Toast.makeText(getApplicationContext(), targetPath, Toast.LENGTH_LONG)
+				.show();
+		File targetDirector = new File(targetPath);
+
+		File[] files = targetDirector.listFiles();
+		for (File file : files) {
+			myGalleryBaseAdapter.add(file.getPath());
+		}
+
+		myPhotoGallery.setAdapter(myGalleryBaseAdapter);
+	}
+
+
+
+}

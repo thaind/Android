@@ -1,0 +1,7 @@
+package com.example.preferencefragment;
+
+import Activity;
+
+public class SetPreferenceActivity extends Activity {
+
+}

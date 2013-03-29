@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;preferences.xml&apos; to &apos;xml&apos;&#x0A;- Original project: &apos;PreferenceFragment&apos;&#x0A;- Destination element: &apos;xml&apos;&#x0A;- Original element: &apos;preferences.xml&apos;&#x0A;- Update references to refactored element" description="Move file" element1="res/layout/preferences.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1364458148377" target="res/xml" units="0" version="1.0"/>
+</session>

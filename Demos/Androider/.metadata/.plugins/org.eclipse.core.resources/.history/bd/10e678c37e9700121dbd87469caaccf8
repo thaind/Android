@@ -1,0 +1,7 @@
+package com.example.preferencefragment;
+
+import PreferenceFragment;
+
+public class PrefsFragment extends PreferenceFragment {
+
+}

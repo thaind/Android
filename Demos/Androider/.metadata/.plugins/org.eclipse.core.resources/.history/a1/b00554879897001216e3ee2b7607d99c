@@ -1,0 +1,123 @@
+package com.example.asynctask_load_multi;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	ProgressBar loadingProgressBar;
+	 ImageView[] targetImage = new ImageView[5];
+
+	    @Override
+	    public void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_main);
+	        targetImage[0] = (ImageView)findViewById(R.id.target0);
+	        targetImage[1] = (ImageView)findViewById(R.id.target1);
+	        targetImage[2] = (ImageView)findViewById(R.id.target2);
+	        targetImage[3] = (ImageView)findViewById(R.id.target3);
+	        targetImage[4] = (ImageView)findViewById(R.id.target4);
+	        
+	        loadingProgressBar = (ProgressBar)findViewById(R.id.loadingprogress);
+	        
+	        //Load bitmap from internet
+	        //As a example, I make all images load from the same source
+	        String onLineImage0 = "http://goo.gl/1VArP";
+	        String onLineImage1 = "http://goo.gl/1VArP";
+	        String onLineImage2 = "http://goo.gl/1VArP";
+	        String onLineImage3 = "http://goo.gl/1VArP";
+	        String onLineImage4 = "http://goo.gl/1VArP";
+	        URL onLineURL0, onLineURL1, onLineURL2, onLineURL3, onLineURL4;
+	        
+	  try {
+	   onLineURL0 = new URL(onLineImage0);
+	   onLineURL1 = new URL(onLineImage1);
+	   onLineURL2 = new URL(onLineImage2);
+	   onLineURL3 = new URL(onLineImage3);
+	   onLineURL4 = new URL(onLineImage4);
+	   new MyNetworkTask(5, targetImage, loadingProgressBar)
+	    .execute(onLineURL0, onLineURL1, onLineURL2, onLineURL3, onLineURL4);
+	  } catch (MalformedURLException e) {
+	   e.printStackTrace();
+	  }
+	        
+	    }
+	    
+	    private class MyNetworkTask extends AsyncTask<URL, Integer, Void>{
+	     
+	     ImageView[] tIV;
+	     Bitmap[] tBM;
+	     ProgressBar tProgressBar;
+	     
+	     public MyNetworkTask(int numberOfImage, ImageView[] iv, ProgressBar pb){
+	      
+	      tBM = new Bitmap[numberOfImage];
+	      
+	      tIV = new ImageView[numberOfImage];
+	      for(int i = 0; i < numberOfImage; i++){
+	       tIV[i] = iv[i];
+	      }
+	      
+	      tProgressBar = pb;
+	     }
+
+	  @Override
+	  protected Void doInBackground(URL... urls) {
+
+	   if (urls.length > 0){
+	    for(int i = 0; i < urls.length; i++){
+	     URL networkUrl = urls[i];
+	     
+	     try {
+	      tBM[i] = BitmapFactory.decodeStream(
+	        networkUrl.openConnection().getInputStream());
+	     } catch (IOException e) {
+	      e.printStackTrace();
+	     }
+	     
+	     publishProgress(i);
+	     
+	     //insert dummy delay to simulate lone time operation
+	     try {
+	      Thread.sleep(500);
+	     } catch (InterruptedException e) {
+	      // TODO Auto-generated catch block
+	      e.printStackTrace();
+	     }
+	     
+	    }
+	   }
+	   return null;
+	  }
+
+	  @Override
+	  protected void onPostExecute(Void result) {
+	   Toast.makeText(getBaseContext(), "Finished", Toast.LENGTH_LONG).show();
+	  }
+
+	  @Override
+	  protected void onProgressUpdate(Integer... values) {
+
+	   if(values.length > 0){
+	    for(int i = 0; i < values.length; i++){
+	     tIV[values[i]].setImageBitmap(tBM[values[i]]);
+	     tProgressBar.setProgress(values[i]+1);
+	    }
+	   }
+	   
+	  }
+
+	    }
+
+
+}

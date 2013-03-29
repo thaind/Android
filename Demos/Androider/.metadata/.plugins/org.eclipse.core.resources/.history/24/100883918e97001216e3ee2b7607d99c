@@ -1,0 +1,5 @@
+<resources>
+
+    <string name="app_name">LruCache with different size</string>
+
+</resources>

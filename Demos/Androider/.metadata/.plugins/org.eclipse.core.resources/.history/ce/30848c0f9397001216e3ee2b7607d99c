@@ -1,0 +1,7 @@
+package com.example.linearlayout_custom;
+
+import LinearLayout;
+
+public class MyHorizontalLayout extends LinearLayout {
+
+}
