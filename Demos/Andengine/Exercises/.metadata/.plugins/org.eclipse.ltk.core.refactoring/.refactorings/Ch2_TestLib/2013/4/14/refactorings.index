@@ -1,0 +1,28 @@
+1364808996877	Copy compilation unit
+1364815826946	Delete element
+1364822265671	Extract method 'printBroadGame'
+1364825202074	Extract local variable 'iTotalPokemon'
+1364841797601	Move compilation unit
+1364882105457	Rename method 'pointTopoint'
+1364886102933	Extract constant 'WHITE_SQUARE'
+1364886151824	Rename field 'WHITE_SQUARE'
+1364886561661	Extract method 'removePokemonsMatched'
+1364886839365	Extract method 'checkPokemonsSelected'
+1364900429287	Delete element
+1364900511896	Copy compilation unit
+1364900534095	Delete element
+1364900543993	Rename type 'CopyOfWAVActivity'
+1364974555989	Move files
+1364975035046	Delete element
+1364975039284	Rename resource 'game_screen1.jpg'
+1364975311466	Delete element
+1365005420917	Rename field 'mMenuBackTexture'
+1365005433312	Rename field 'mMenuBackTextureRegion'
+1365012520378	Delete element
+1365012527522	Delete element
+1365013225059	Encapsulate field 'mBroadGame'
+1365057997325	Move file
+1365057999516	Move file
+1365060532712	Extract local variable 'iWidthToMap'
+1365060790993	Extract local variable 'iTileCenterWidth'
+1365062970169	Rename local variable 'particleSystem'

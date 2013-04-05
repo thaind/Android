@@ -1,0 +1,528 @@
+package com.pearson.lagp.v3;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
+
+import javax.microedition.khronos.opengles.GL10;
+
+import org.anddev.andengine.audio.sound.Sound;
+import org.anddev.andengine.audio.sound.SoundFactory;
+import org.anddev.andengine.engine.Engine;
+import org.anddev.andengine.engine.camera.Camera;
+import org.anddev.andengine.engine.handler.timer.ITimerCallback;
+import org.anddev.andengine.engine.handler.timer.TimerHandler;
+import org.anddev.andengine.engine.options.EngineOptions;
+import org.anddev.andengine.engine.options.EngineOptions.ScreenOrientation;
+import org.anddev.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
+import org.anddev.andengine.entity.layer.tiled.tmx.TMXLayer;
+import org.anddev.andengine.entity.layer.tiled.tmx.TMXLoader;
+import org.anddev.andengine.entity.layer.tiled.tmx.TMXLoader.ITMXTilePropertiesListener;
+import org.anddev.andengine.entity.layer.tiled.tmx.TMXProperties;
+import org.anddev.andengine.entity.layer.tiled.tmx.TMXTile;
+import org.anddev.andengine.entity.layer.tiled.tmx.TMXTileProperty;
+import org.anddev.andengine.entity.layer.tiled.tmx.TMXTiledMap;
+import org.anddev.andengine.entity.layer.tiled.tmx.util.exception.TMXLoadException;
+import org.anddev.andengine.entity.particle.ParticleSystem;
+import org.anddev.andengine.entity.particle.emitter.CircleParticleEmitter;
+import org.anddev.andengine.entity.particle.initializer.AlphaInitializer;
+import org.anddev.andengine.entity.particle.initializer.ColorInitializer;
+import org.anddev.andengine.entity.particle.initializer.RotationInitializer;
+import org.anddev.andengine.entity.particle.initializer.VelocityInitializer;
+import org.anddev.andengine.entity.particle.modifier.ExpireModifier;
+import org.anddev.andengine.entity.scene.Scene;
+import org.anddev.andengine.entity.scene.Scene.IOnSceneTouchListener;
+import org.anddev.andengine.entity.sprite.Sprite;
+import org.anddev.andengine.entity.text.ChangeableText;
+import org.anddev.andengine.entity.util.FPSLogger;
+import org.anddev.andengine.input.touch.TouchEvent;
+import org.anddev.andengine.opengl.font.Font;
+import org.anddev.andengine.opengl.texture.Texture;
+import org.anddev.andengine.opengl.texture.TextureOptions;
+import org.anddev.andengine.opengl.texture.region.TextureRegion;
+import org.anddev.andengine.opengl.texture.region.TextureRegionFactory;
+import org.anddev.andengine.ui.activity.BaseGameActivity;
+import org.anddev.andengine.util.Debug;
+
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Handler;
+import android.util.Log;
+import android.view.KeyEvent;
+
+public class WAVActivity extends BaseGameActivity {
+
+	// ===========================================================
+	// Constants
+	// ===========================================================
+
+	private static final int CAMERA_WIDTH = 480;
+	private static final int CAMERA_HEIGHT = 320;
+	private static final int WHITE_SQUARE_GLOBALID = 17;
+	private static final int MAX_POKEMON = 16;
+	private static final int BROAD_WIDTH = 10;
+	private static final int BROAD_HEIGHT = 10;
+	private int[][] mBroadGame = new int[BROAD_WIDTH + 2][BROAD_HEIGHT + 2];
+	private String tag = "WAVActivity";
+
+	// ===========================================================
+	// Fields
+	// ===========================================================
+	private Handler mHandler;
+	protected Camera mCamera;
+	protected Scene mMainScene;
+	private Sound mExploSound, mGunshotSound, mWhiffleSound;
+	private SharedPreferences audioOptions;
+	private TMXTiledMap mWAVTMXMap;
+	private TMXLayer tmxLayer;
+	private TMXTile tmxTile;
+	private TMXTile tmxTilePast;
+
+	private Random gen;
+	private Texture mScreenTexture;
+	private TextureRegion mScreenTextureRegion;
+	private Texture mFontTexture;
+	private Font mFont;
+	private ChangeableText mtextCenter;
+	private int mScore = 0;
+	private int mTimeCounter = 0;
+	private ChangeableText mtextTimer;
+	private Texture mParticleTexture;
+	private TextureRegion mParticleTextureRegion;
+	private CircleParticleEmitter particleEmitter;
+	private ParticleSystem particleSystem;
+
+	// ===========================================================
+	// Constructors
+	// ===========================================================
+
+	// ===========================================================
+	// Getter and Setter
+	// ===========================================================
+
+	// ===========================================================
+	// Methods for/from SuperClass/Interfaces
+	// ===========================================================
+
+	@Override
+	public Engine onLoadEngine() {
+		audioOptions = getSharedPreferences("audio", MODE_PRIVATE);
+		// StartActivity.mMusic.pause();
+		initBroadGame();
+		mHandler = new Handler();
+		gen = new Random();
+		this.mCamera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
+		return new Engine(new EngineOptions(true, ScreenOrientation.LANDSCAPE,
+				new RatioResolutionPolicy(CAMERA_WIDTH, CAMERA_HEIGHT),
+				this.mCamera).setNeedsSound(true));
+	}
+
+	@Override
+	public void onLoadResources() {
+		/* Load Textures. */
+
+		mParticleTexture = new Texture(32, 32,
+				TextureOptions.BILINEAR_PREMULTIPLYALPHA);
+		mParticleTextureRegion = TextureRegionFactory.createFromAsset(
+				this.mParticleTexture, this, "gfx/particles/particle_fire.png",
+				0, 0);
+		mEngine.getTextureManager().loadTexture(this.mParticleTexture);
+
+		this.mFontTexture = new Texture(256, 256,
+				TextureOptions.BILINEAR_PREMULTIPLYALPHA);
+		this.mFont = new Font(this.mFontTexture, Typeface.create(
+				Typeface.DEFAULT, Typeface.BOLD), 15, true, Color.BLACK);
+		this.mEngine.getTextureManager().loadTexture(this.mFontTexture);
+		this.mEngine.getFontManager().loadFont(this.mFont);
+
+		this.mScreenTexture = new Texture(512, 512,
+				TextureOptions.BILINEAR_PREMULTIPLYALPHA);
+		this.mScreenTextureRegion = TextureRegionFactory.createFromAsset(
+				this.mScreenTexture, this,
+				"gfx/screens/game_screen_default.png", 0, 0);
+		this.mEngine.getTextureManager().loadTexture(this.mScreenTexture);
+
+		SoundFactory.setAssetBasePath("mfx/");
+		try {
+			this.mExploSound = SoundFactory.createSoundFromAsset(
+					this.mEngine.getSoundManager(), getApplicationContext(),
+					"eat.mp3");
+		} catch (final IOException e) {
+			Debug.e(e);
+
+		}
+	}
+
+	@Override
+	public Scene onLoadScene() {
+		final Scene scene = new Scene(1);
+		this.mEngine.registerUpdateHandler(new FPSLogger());
+
+		final int centerX = (CAMERA_WIDTH - this.mScreenTextureRegion
+				.getWidth()) / 2;
+		final int centerY = (CAMERA_HEIGHT - this.mScreenTextureRegion
+				.getHeight()) / 2;
+		final Sprite menuBack = new Sprite(centerX, centerY,
+				this.mScreenTextureRegion);
+		scene.getLastChild().attachChild(menuBack);
+
+		try {
+			final TMXLoader tmxLoader = new TMXLoader(this,
+					this.mEngine.getTextureManager(),
+					TextureOptions.BILINEAR_PREMULTIPLYALPHA,
+					new ITMXTilePropertiesListener() {
+						@Override
+						public void onTMXTileWithPropertiesCreated(
+								TMXTiledMap pTMXTiledMap,
+								TMXLayer pTMXLayer,
+								TMXTile pTMXTile,
+								TMXProperties<TMXTileProperty> pTMXTileProperties) {
+							// draw Pokemons
+
+							int iCurrentBroadID = mBroadGame[pTMXTile
+									.getTileRow() + 1][pTMXTile.getTileColumn() + 1];
+							if (pTMXTile.getGlobalTileID() != iCurrentBroadID)
+								pTMXTile.setGlobalTileID(pTMXTiledMap,
+										iCurrentBroadID);
+
+						}
+					});
+
+			mWAVTMXMap = tmxLoader.loadFromAsset(this,
+					"gfx/tiles/pokemon320320.tmx");
+		} catch (final TMXLoadException tmxle) {
+			Debug.e(tmxle);
+		}
+		tmxLayer = mWAVTMXMap.getTMXLayers().get(0);
+		tmxLayer.setPosition((float) (CAMERA_WIDTH - tmxLayer.getWidth()) / 2,
+				(float) (CAMERA_HEIGHT - tmxLayer.getHeight()) / 2);
+		scene.getLastChild().attachChild(tmxLayer);
+		scene.setOnSceneTouchListener(new IOnSceneTouchListener() {
+			@Override
+			public boolean onSceneTouchEvent(final Scene pScene,
+					final TouchEvent pSceneTouchEvent) {
+
+				switch (pSceneTouchEvent.getAction()) {
+				case TouchEvent.ACTION_DOWN:
+					/* Get the touched tile */
+					tmxTile = tmxLayer.getTMXTileAt(pSceneTouchEvent.getX(),
+							pSceneTouchEvent.getY());
+					Log.i(tag,
+							"pSceneTouchEvent.getX() = "
+									+ pSceneTouchEvent.getX()
+									+ " / pSceneTouchEvent.getY() = "
+									+ pSceneTouchEvent.getY());
+					checkPokemonsSelected();
+					break;
+
+				}
+				return true;
+			}
+		});
+
+		mtextCenter = new ChangeableText(0, 10.0f, mFont, "Score: 0",
+				"Score: XXXXXX".length());
+		mtextTimer = new ChangeableText(0, 25.0f, mFont, "Time: 0",
+				"Time: XXXXXX".length());
+
+		scene.getLastChild().attachChild(mtextCenter);
+		scene.getLastChild().attachChild(mtextTimer);
+		scene.registerUpdateHandler(new TimerHandler(1, true,
+				new ITimerCallback() {
+
+					@Override
+					public void onTimePassed(TimerHandler pTimerHandler) {
+
+						mtextTimer.setText("Time: "
+								+ (mTimeCounter += (int) pTimerHandler
+										.getTimerSeconds()));
+					}
+				}));
+
+
+
+		
+		scene.getLastChild().attachChild(particleSystem);
+
+		return scene;
+	}
+
+	private ParticleSystem getInstance (){
+		particleEmitter = new CircleParticleEmitter(CAMERA_WIDTH * 0.5f,
+				CAMERA_HEIGHT * 0.5f + 20, 2);
+		particleSystem = new ParticleSystem(particleEmitter, 100, 100, 500,
+				this.mParticleTextureRegion);
+		particleSystem.addParticleInitializer(new ColorInitializer(1, 0, 0));
+		particleSystem.addParticleInitializer(new AlphaInitializer(0));
+		particleSystem.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE);
+		particleSystem.addParticleInitializer(new VelocityInitializer(-2, 2,
+				-2, -2));
+		particleSystem.addParticleInitializer(new RotationInitializer(0.0f,
+				360.0f));
+		particleSystem
+				.addParticleModifier(new org.anddev.andengine.entity.particle.modifier.ScaleModifier(
+						1.0f, 2.0f, 0, 5));
+		particleSystem
+				.addParticleModifier(new org.anddev.andengine.entity.particle.modifier.ColorModifier(
+						1, 1, 0, 0.5f, 0, 0, 0, 3));
+		particleSystem
+				.addParticleModifier(new org.anddev.andengine.entity.particle.modifier.ColorModifier(
+						1, 1, 0.5f, 1, 0, 1, 2, 4));
+		particleSystem
+				.addParticleModifier(new org.anddev.andengine.entity.particle.modifier.AlphaModifier(
+						0, 1, 0, 1));
+		particleSystem
+				.addParticleModifier(new org.anddev.andengine.entity.particle.modifier.AlphaModifier(
+						1, 0, 3, 4));
+		particleSystem.addParticleModifier(new ExpireModifier(1, 2));
+		particleSystem.setParticlesSpawnEnabled(false);
+		return particleSystem;
+		
+	}
+	
+	@Override
+	public void onLoadComplete() {
+	}
+
+	private boolean isPair(int x1, int y1, int x2, int y2, int v1, int v2) {
+		if (v1 != v2) {
+			return false;
+		}
+		if (x1 == x2 && y1 == y2) {
+			return false;
+		}
+		for (int row = 0; row < BROAD_WIDTH + 2; row++) {
+			// Log.i(tag,
+			// "row: " + row + " / " + pointToRow(x1, y1, row) + " / "
+			// + pointToRow(x2, y2, row) + " / "
+			// + pointsOnTheRow(row, y1, row, y2));
+			if (pointToRow(x1, y1, row) && pointToRow(x2, y2, row)
+					&& pointsOnTheRow(row, y1, row, y2)) {
+				return true;
+			}
+		}
+		for (int col = 0; col < BROAD_HEIGHT + 2; col++) {
+			if (pointToCol(x1, y1, col) && pointToCol(x2, y2, col)
+					&& pointsOnTheCol(x1, col, x2, col)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private boolean pointToRow(int x, int y, int row) {
+		if (x < row) {
+			for (int i = x + 1; i <= row; i++) {
+				if (mBroadGame[i][y] != 0) {
+					return false;
+				} else {
+					continue;
+				}
+			}
+			return true;
+		} else if (x > row) {
+			for (int i = x - 1; i >= row; i--) {
+				if (mBroadGame[i][y] != 0) {
+					return false;
+				} else {
+					continue;
+				}
+			}
+			return true;
+		} else {
+			return true;
+		}
+	}
+
+	private boolean pointToCol(int x, int y, int col) {
+		if (y < col) {
+			for (int i = y + 1; i <= col; i++) {
+				if (mBroadGame[x][i] != 0) {
+					return false;
+				} else {
+					continue;
+				}
+			}
+			return true;
+		} else if (y > col) {
+			for (int i = y - 1; i >= col; i--) {
+				if (mBroadGame[x][i] != 0) {
+					return false;
+				} else {
+					continue;
+				}
+			}
+			return true;
+		} else {
+			return true;
+		}
+	}
+
+	private boolean pointsOnTheRow(int x1, int y1, int x2, int y2) {
+		int ty1 = (y1 < y2) ? y1 : y2;
+		int ty2 = (y1 < y2) ? y2 : y1;
+		if (ty2 - ty1 == 1) { //
+			return true;
+		} else { //
+			for (int i = ty1 + 1; i < ty2; i++) {
+				if (mBroadGame[x1][i] != 0) {
+					return false;
+				} else {
+					continue;
+				}
+			}
+			return true;
+		}
+	}
+
+	private boolean pointsOnTheCol(int x1, int y1, int x2, int y2) {
+		int tx1 = (x1 < x2) ? x1 : x2;
+		int tx2 = (x1 < x2) ? x2 : x1;
+		if (tx2 - tx1 == 1) { //
+			return true;
+		} else { //
+			for (int i = tx1 + 1; i < tx2; i++) {
+				if (mBroadGame[i][y1] != 0) {
+					return false;
+				} else {
+					continue;
+				}
+			}
+			return true;
+		}
+	}
+
+	private void initBroadGame() {
+
+		int iTotalPokemon = BROAD_WIDTH * BROAD_HEIGHT;
+		int intHalfArray = iTotalPokemon / 2;
+
+		// Create an array
+		int[] arrBroadGame = new int[iTotalPokemon];
+		Random rand = new Random();
+		for (int i = 0; i < intHalfArray; i++) {
+			arrBroadGame[i] = rand.nextInt(MAX_POKEMON - 1) + 1;
+			arrBroadGame[iTotalPokemon - i - 1] = arrBroadGame[i];
+		}
+		// Shuffle the elements in the array
+		Collections.shuffle(Arrays.asList(arrBroadGame));
+
+		int index = 0;
+		for (int row = 1; row < BROAD_WIDTH + 2; row++) {
+			for (int col = 1; col < BROAD_HEIGHT + 1; col++) {
+				if (index < iTotalPokemon) {
+					mBroadGame[row][col] = arrBroadGame[index];
+				}
+				index++;
+			}
+		}
+	}
+
+	private void checkPokemonsSelected() {
+		if (tmxTile != null
+				&& mBroadGame[tmxTile.getTileRow() + 1][tmxTile.getTileColumn() + 1] != 0) {
+			if (tmxTilePast == null && tmxTilePast != tmxTile) {
+				tmxTilePast = tmxTile;
+
+			} else {
+				if (isPair(tmxTilePast.getTileRow() + 1,
+						tmxTilePast.getTileColumn() + 1,
+						tmxTile.getTileRow() + 1, tmxTile.getTileColumn() + 1,
+						tmxTilePast.getGlobalTileID(),
+						tmxTile.getGlobalTileID())) {
+
+					removePokemonsMatched();
+					tmxTilePast = null;
+				} else {
+					mtextCenter.setText("Score: "
+							+ Integer.toString(mScore = mScore - 1));
+					tmxTilePast = tmxTile;
+				}
+			}
+		}
+	}
+
+	private void explosive(TMXTile tmxTile) {
+
+		particleEmitter.setCenter(getCenterWidthTile(tmxTile),
+				getCenterHeightTile(tmxTile));
+		particleSystem.setParticlesSpawnEnabled(true);
+
+//		particleEmitter.setCenter(getCenterWidthTile(tmxTilePast),
+//				getCenterHeightTile(tmxTilePast));
+//		particleSystem.setParticlesSpawnEnabled(true);
+//		
+		mHandler.postDelayed(new Runnable() {
+			public void run() {
+				particleSystem.setParticlesSpawnEnabled(false);
+			}
+		}, 1500);
+
+	}
+
+	private int getCenterWidthTile(TMXTile tmxTile) {
+		final int iWidthToMap = (CAMERA_WIDTH - (mWAVTMXMap.getTileColumns() * mWAVTMXMap
+				.getTileWidth())) / 2;
+		return (tmxTile.getTileX() + iWidthToMap);
+	}
+
+	private int getCenterHeightTile(TMXTile tmxTile) {
+		return (tmxTile.getTileY());
+	}
+
+	private void removePokemonsMatched() {
+		fireBullet();
+		explosive(tmxTile);
+		explosive(tmxTilePast);
+		mtextCenter.setText("Score: " + Integer.toString(mScore = mScore + 5));
+		tmxTile.setGlobalTileID(mWAVTMXMap, WHITE_SQUARE_GLOBALID);
+		tmxTilePast.setGlobalTileID(mWAVTMXMap, WHITE_SQUARE_GLOBALID);
+		mBroadGame[tmxTilePast.getTileRow() + 1][tmxTilePast.getTileColumn() + 1] = 0;
+		mBroadGame[tmxTile.getTileRow() + 1][tmxTile.getTileColumn() + 1] = 0;
+
+	}
+
+	// ===========================================================
+	// Inner and Anonymous Classes
+	// ===========================================================
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			// new AlertDialog.Builder(this).setTitle("Warning!")
+			// .setMessage("Are you sure you want to quit?")
+			// .setPositiveButton("OK", new OnClickListener() {
+			// @Override
+			// public void onClick(DialogInterface dialog, int which) {
+			// WAVActivity.this.finish();
+			// }
+			// }).setNegativeButton("Cancel", new OnClickListener() {
+			// @Override
+			// public void onClick(DialogInterface dialog, int which) {
+			// return;
+			// }
+			// }).show();
+			// return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	private Runnable mPlayGunshot = new Runnable() {
+		public void run() {
+			playSound(mExploSound);
+		}
+	};
+
+	private void fireBullet() {
+		mHandler.postDelayed(mPlayGunshot, 100);
+	}
+
+	private void playSound(Sound mSound) {
+		if (!audioOptions.getBoolean("effectsOn", true)) {
+			mSound.play();
+		}
+	}
+}

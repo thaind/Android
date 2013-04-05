@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Get Motivated Live Wallpaper</string>
+    <string name="wallpaper_description">"People are always blaming their circumstances for what they are. I don't believe in circumstances. The people who get on in this world are the people who get up and look for the circumstances they want, and if they can't find them, make them."
+~ George Bernard Shaw?</string>
+    
+    
+    
+    <!-- Settings -->
+    <string name="wallpaper_settings">Settings</string>
+    
+    <!-- Touch Input Setting -->
+    
+    
+    
+    
+    <!-- Particle Colour Settings -->
+    
+    
+	
+		
+	
+	
+	
+	<!-- Background Colour Settings -->
+	
+    <!-- General -->
+    <skip />
+    <!-- Application name -->
+    <string name="wallpapers">Example Wallpapers</string>
+
+    <!-- Wallpaper showing a cube -->
+    <string name="wallpaper_cube1">Cube</string>
+
+    <!-- Wallpaper showing a cube or dodecahedron, data read from resource -->
+    <string name="wallpaper_cube2">Cube - resource</string>
+
+    <!-- Wallpaper showing a cube, renderscript version -->
+    <string name="wallpaper_cube3">Cube - RenderScript</string>
+
+    <string name="cube2_settings">Settings</string>
+    <string name="cube2_settings_title">Select shape</string>
+    <string name="cube2_settings_summary">Choose whether to display a cube or a dodecahedron</string>
+
+	
+		
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+</resources>

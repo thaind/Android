@@ -1,0 +1,5 @@
+package com.pearson.lagp.model;
+
+public class Pokemon {
+	
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" source="128128.tsx"/>
+ <layer name="Pokemons" width="10" height="10">
+  <properties>
+   <property name="pk" value="true"/>
+  </properties>
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NkYGBgHMWDBgMAjw2X0pABAAA=
+  </data>
+ </layer>
+</map>

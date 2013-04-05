@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="128128" tilewidth="32" tileheight="32">
+  <image source="128128.png" trans="ff00ff" width="128" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="xxx" value="Phai co de no chay onTMXTileWithPropertiesCreated"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="clearfix" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQRMK8ODAuOXRxQQLqeYmwTxBNHT5xUszCJ47LHGx8Qu7A5m5iwwMAbIsc3pABAAA=
+  </data>
+ </layer>
+</map>

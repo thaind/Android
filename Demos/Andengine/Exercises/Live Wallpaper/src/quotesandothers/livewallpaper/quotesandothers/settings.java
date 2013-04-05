@@ -1,0 +1,37 @@
+package quotesandothers.livewallpaper.quotesandothers;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import quotesandothers.livewallpaper.quotesandothers.R;
+
+public class settings extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener
+{	
+	@Override
+    protected void onCreate(Bundle icicle)
+	{
+        super.onCreate(icicle);
+        getPreferenceManager().setSharedPreferencesName(livewallpaper.SHARED_PREFS_NAME);
+        addPreferencesFromResource(R.xml.wallpaper_settings);
+        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroy();
+    }
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
+	{
+		
+	}
+}

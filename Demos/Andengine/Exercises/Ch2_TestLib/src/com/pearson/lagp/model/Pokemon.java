@@ -1,0 +1,18 @@
+package com.pearson.lagp.model;
+
+public class Pokemon {
+	public static final int WHITE_SQUARE_GLOBALID = 17;
+	public static final int MAX_POKEMON = 16;
+	public static final int BROAD_WIDTH = 10;
+	public static final int BROAD_HEIGHT = 10;
+	private int[][] mBroadGame = new int[BROAD_WIDTH + 2][BROAD_HEIGHT + 2];
+	public Pokemon (){
+		
+	}
+	public int[][] getmBroadGame() {
+		return mBroadGame;
+	}
+	public void setmBroadGame(int[][] mBroadGame) {
+		this.mBroadGame = mBroadGame;
+	}
+}
