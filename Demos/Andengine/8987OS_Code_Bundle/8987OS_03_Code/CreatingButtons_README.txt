@@ -1,0 +1,5 @@
+The CreatingButtons class makes use of AndEngine's TiledSprite class, which is essentially used for creating animated sprites. In this activity, we're applying a button to the scene which, when pressed, changes to a different image. The purpose of this activity is to introduce the overrideable onAreaTouched() method, allowing us to apply responses to touch events which happen within the bounds of a specific shape(sprite).
+
+Installation:
+1. Import the CreatingButtons class to your project and include a 300x50 "button_tiles.png" image to the "assets/gfx/" folder of your project. The image should include sub-images(tiles) within the image, each 150x50 pixels in dimension. An image of this button can be found within this chapter.
+2. Replace your AndroidManifest.xml's startup activity with ".CreatingButtons."

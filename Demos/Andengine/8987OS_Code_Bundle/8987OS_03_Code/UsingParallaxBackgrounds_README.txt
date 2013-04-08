@@ -1,0 +1,5 @@
+This activity is allowing us to apply a feeling of depth to our scene through the use of the ParallaxBackground class. The ParallaxBackground class allows us to create ParallaxEntities from Sprite objects, which when applied to the scene with a defined parallax factor, will react to camera movement at a rate dependent on its own factor. The final outcome is 3 different hill sprites "scrolling" the screen at different speeds upon a moving camera, giving the sense that some sprites appear closer or farther than others. Additionally, this activity registers user touch events for the movement of the camera.
+
+Installation:
+1. Import the UsingParallaxBackgrounds class to your project and include an 800x75 "hill.png" image to the "assets/gfx/" folder of your project. The image doesn't have to be an image of a hill, but it adds to the look of the end-result.
+2. Replace your AndroidManifest.xml's startup activity with ".UsingParallaxBackgrounds".

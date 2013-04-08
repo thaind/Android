@@ -1,0 +1,5 @@
+In the ApplyingText activity, the first thing we must do is create our global variables which will be used for the text object (TEST_STRING, mFont object and mText object). The mFont object is created in the onCreateResource() method of the activity, with a generic-type font setting. Next, we move into the onPopulateScene() method where the mText object is created, but first we measure the length of the TEST_STRING in order to properly center the text. Additionally, TextOptions have been included in order to give a general idea on how to use them with a Text object. When creating the text, we pass the TEST_STRING, mFont, and textOptions as parameters and proceed to set the color the the text and attach it to the scene.
+
+Installation:
+1. Add the ApplyingText class to your project
+2. Replace your AndroidManifest.xml's startup activity with ".ApplyingText".

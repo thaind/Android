@@ -529,3 +529,16 @@ org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of 
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2013-03-29 18:03:38.977
 !MESSAGE Failed to load properties file for project 'V314'
+!SESSION 2013-04-05 15:50:54.889 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.6.0_43
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -data /home/thaind/Androids/Workspaces/Github/Demos/Andengine/AndEngineDemos -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-04-05 15:50:59.761
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.jobs 2 2 2013-04-05 15:51:38.378
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.android.ide.eclipse.adt.internal.sdk.Sdk$5

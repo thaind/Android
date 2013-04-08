@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.Live.Wallpaper.Extension.Example"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <uses-feature android:name="android.software.live_wallpaper" />
+
+    <application android:icon="@drawable/ic_launcher" >
+        <service
+            android:name=".LiveWallpaperExtensionService"
+            android:enabled="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/service_name"
+            android:permission="android.permission.BIND_WALLPAPER" >
+            <intent-filter android:priority="1" >
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/wallpaper" />
+        </service>
+
+        <activity
+            android:name=".LiveWallpaperSettings"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/live_wallpaper_settings"
+            android:theme="@android:style/Theme.Black" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,6 @@
+This resource manager class is based on the previous resource loading we've went over for sounds, graphics and fonts. We've packaged the entire resource loading process into one class here, allowing us to call the respective "load" methods depending on which resources we'd like to load. We've also added set/get methods to retrieve our game engine in situations (projects) where we might otherwise be often required to pass this main object as a parameter to various classes.
+
+Installation:
+1. Add this class to your project, add required imports.
+
+2. I've included two separate textures to load in this activity, though the texture regions which are loading "background.png" images are purely example. In order to create a working instance of this class without making changes, create a new gfx folder in your projects assets folder, then create both 'game' and 'menu' folders in the gfx folder. Create a simple background.png for each of the two newly created sub-folders, refresh your project.
